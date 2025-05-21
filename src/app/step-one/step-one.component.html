@@ -1,23 +1,23 @@
 <body>
     <div class="top-info">
-        <p class="percent-box">{{percentTrashed}}</p>
-        <div>placeholder for timer</div>
+        <p class="percent-box">{{getTrashedPercent()}}%</p>
+        <app-timer></app-timer>
     </div>
 
     <div>
-        placeholder for words
+        {{getCurrentWord()}}
     </div>
 
     <div>
-        <button class="left-arrow">
+        <button class="left-arrow" (click)="valDecideTrash(true)">
             placeholder for left arrow
         </button>
-        <button class="right-arrow">
+        <button class="right-arrow" (click)="valDecideTrash(false)">
             placeholder for right arrow
         </button>
     </div>
 
-    <p>number words completed</p>
+    <p>{{valueIndex + 1}} / {{valuesService.getValsLength()}}</p>
 
-    <button>undo button</button>
+    <button (click)="undoDecision()">undo button</button>
 </body>

@@ -1,6 +1,22 @@
 import { Injectable } from '@angular/core';
 import { CoreValue } from './core-value';
 
+//TS doesnt have a built in shuffle function :( I fully stole this from stackoverflow. Looks like it should work just fine tho. 
+function shuffle(array : string[]) {
+  let currentIndex = array.length;
+
+  while (currentIndex != 0) {
+
+    // This line is so rad. I'm mostly just trusting that math means this is a balanced selection. But I do see why it gets a number between 0 and length.
+    let randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    //also this swap is witchcraft. Ts is so cool
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,6 +24,9 @@ export class ValuesManagerService {
   private userVals: CoreValue[];
 
   constructor() { 
+    //shuffle(testArray)
+    shuffle(valueArray);
+    //this.userVals = testArray.map((value, index) => ({
     this.userVals = valueArray.map((value, index) => ({
       id: index,
       value: value,
@@ -15,10 +34,38 @@ export class ValuesManagerService {
     }));
   }
   
-  getNumVals() : Number {
+  getValsLength(): number {
     return this.userVals.length;
   }
+
+  getValAt(index : number): CoreValue{
+    const val = this.userVals.at(index);
+    if (val === undefined){
+      throw new Error(`Tried to access invalid idex: ${index}`)
+    } else{
+      return val;
+    }
+  }
+
+  setTrashed(index: number, trashed: boolean): void{
+    if (index >= 0 && index < this.userVals.length){
+      this.userVals[index].trashed = trashed;
+    } else {
+      throw new Error(`Tried to access invalid idex: ${index}`);
+    }
+  }
+
+  getPercentTrashed(): number{
+    const length = this.userVals.length
+    const numTrashed = this.userVals.filter(value => value.trashed).length
+    return length === 0 ? 0 : (numTrashed / length) * 100
+
+  } 
 }
+
+const testArray = [
+  "one", "two", "three", "four", "five"
+]
 
 const valueArray = [
   "Abundance",
