@@ -20,4 +20,6 @@
     <p>{{valueIndex + 1}} / {{valuesService.getValsLength()}}</p>
 
     <button (click)="undoDecision()">undo button</button>
+
+    <button *ngIf="isFinished" (click)="openReview()">Next step button placeholder</button>
 </body>

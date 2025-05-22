@@ -24,10 +24,10 @@ export class ValuesManagerService {
   private userVals: CoreValue[];
 
   constructor() { 
-    //shuffle(testArray)
-    shuffle(valueArray);
-    //this.userVals = testArray.map((value, index) => ({
-    this.userVals = valueArray.map((value, index) => ({
+    shuffle(testArray)
+    //shuffle(valueArray);
+    this.userVals = testArray.map((value, index) => ({
+    //this.userVals = valueArray.map((value, index) => ({
       id: index,
       value: value,
       trashed: false
