@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-timer',
@@ -6,21 +6,17 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   template: '<p>{{getTimeString()}}</p>',
   styleUrl: './timer.component.css'
 })
-export class TimerComponent implements OnInit, OnDestroy{
-  minutesLeft: number = 10;
+export class TimerComponent implements OnDestroy{
+  @Input() minutesLeft: number = 10;
   secondsLeft: number = 0;
   intervalId: any; //This is really supposed to be Nodejs.Timeout, but I dont care to figure that out. 
   timesUp: boolean = false;
 
-  getTimeString(): string{
-    const timesUpPrefix = this.timesUp ? '-' : '';
-    const minutes = this.minutesLeft.toString().padStart(2, '0');
-    const seconds = this.secondsLeft.toString().padStart(2, '0');
-
-    return `${timesUpPrefix}${minutes}:${seconds}`
+  ngOnDestroy() {
+    this.stop();
   }
 
-  ngOnInit(): void{
+  start(): void{
     this.intervalId = setInterval(() => {
       if(!this.timesUp){
         this.secondsLeft--;
@@ -50,8 +46,15 @@ export class TimerComponent implements OnInit, OnDestroy{
     }, 1000);
   }
 
-  ngOnDestroy() {
+  stop(): void{
     clearInterval(this.intervalId);
   }
 
+  getTimeString(): string{
+    const timesUpPrefix = this.timesUp ? '-' : '';
+    const minutes = this.minutesLeft.toString().padStart(2, '0');
+    const seconds = this.secondsLeft.toString().padStart(2, '0');
+
+    return `${timesUpPrefix}${minutes}:${seconds}`
+  }
 }

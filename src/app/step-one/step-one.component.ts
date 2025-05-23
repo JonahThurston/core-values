@@ -1,8 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { NgIf } from '@angular/common';
 
 import { ValuesManagerService } from '../values-manager.service';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog'
+import { MatDialog, MatDialogModule } from '@angular/material/dialog'
 
 import { TimerComponent } from '../timer/timer.component';
 import { StepOneInstructionsComponent } from '../step-one-instructions/step-one-instructions.component';
@@ -10,16 +10,36 @@ import { StepOneReviewDialogueComponent } from '../step-one-review-dialogue/step
 
 @Component({
   selector: 'app-step-one',
-  imports: [StepOneInstructionsComponent, TimerComponent, NgIf, MatDialogModule],
+  imports: [TimerComponent, NgIf, MatDialogModule],
   templateUrl: './step-one.component.html',
   styleUrl: './step-one.component.css'
 })
-export class StepOneComponent {
+export class StepOneComponent implements OnInit{
   valuesService = inject(ValuesManagerService);
   valueIndex = 0;
   numVals = this.valuesService.getValsLength();
   isFinished = false;
   readonly dialog = inject(MatDialog)
+  @ViewChild(TimerComponent) timer!: TimerComponent;
+
+  ngOnInit(): void {
+    const introRef = this.dialog.open(StepOneInstructionsComponent);
+
+    introRef.afterClosed().subscribe(result => {
+      //console.log(`Dialog result: ${result}`);
+      this.timer.start();
+    });
+  }
+
+  openInstructions(): void{
+    this.timer.stop();
+    const introRef = this.dialog.open(StepOneInstructionsComponent);
+
+    introRef.afterClosed().subscribe(result => {
+      //console.log(`Dialog result: ${result}`);
+      this.timer.start();
+    });
+  }
 
   getCurrentWord(): string {
     if (this.valueIndex === this.numVals){
@@ -53,10 +73,10 @@ export class StepOneComponent {
   }
 
   openReview() {
-    const dialogRef = this.dialog.open(StepOneReviewDialogueComponent);
+    const reviewRef = this.dialog.open(StepOneReviewDialogueComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    // reviewRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
   }
 }
