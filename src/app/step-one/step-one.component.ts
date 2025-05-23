@@ -5,8 +5,8 @@ import { ValuesManagerService } from '../values-manager.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog'
 
 import { TimerComponent } from '../timer/timer.component';
-import { StepOneInstructionsComponent } from '../step-one-instructions/step-one-instructions.component';
-import { StepOneReviewDialogueComponent } from '../step-one-review-dialogue/step-one-review-dialogue.component';
+import { StepOneInstructionsComponent } from './step-one-instructions/step-one-instructions.component';
+import { StepOneReviewDialogueComponent } from './step-one-review-dialogue/step-one-review-dialogue.component';
 
 @Component({
   selector: 'app-step-one',
