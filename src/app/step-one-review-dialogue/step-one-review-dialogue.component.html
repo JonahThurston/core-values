@@ -1,3 +1,13 @@
-<h2>Title of the dialog</h2>
-<mat-dialog-content>Main body content here</mat-dialog-content>
-<mat-dialog-actions>Buttons (e.g. Cancel, OK) go here</mat-dialog-actions>
+<h2>Double Check Your Decisions</h2>
+<mat-dialog-content>
+    <div *ngFor="let value of userVals">
+        <div class="value-card" [ngClass]="{'trashed-card': value.trashed}">
+            <p>{{value.id + 1}}</p>
+            <p>{{value.value}}</p>
+            <button class="trash-toggle" (click)="setTrash(value.id, !value.trashed)">trash toggle</button>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close routerLink="/step-two">On to Step 2</button>
+</mat-dialog-actions>

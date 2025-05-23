@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CoreValue } from './core-value';
+import { Observable, of } from 'rxjs';
 
 //TS doesnt have a built in shuffle function :( I fully stole this from stackoverflow. Looks like it should work just fine tho. 
 function shuffle(array : string[]) {
@@ -59,8 +60,13 @@ export class ValuesManagerService {
     const length = this.userVals.length
     const numTrashed = this.userVals.filter(value => value.trashed).length
     return length === 0 ? 0 : (numTrashed / length) * 100
-
   } 
+
+  //first time trying observables! Theyre kinda rad!
+  getValsObservable(): Observable<CoreValue[]> {
+    //So basically this of thing turns an array into an observable. If I was using an http.get it would already be observable and I wouldnt need an array
+    return of(this.userVals);
+  }
 }
 
 const testArray = [
