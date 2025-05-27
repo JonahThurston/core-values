@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 
-import { ValuesManagerService } from '../../values-manager.service';
-import { CoreValue } from '../../core-value';
+import { ValuesManagerService } from '../../../values-manager.service';
+import { CoreValue } from '../../../core-value';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';

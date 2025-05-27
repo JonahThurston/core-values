@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { NgIf } from '@angular/common';
 
-import { ValuesManagerService } from '../values-manager.service';
+import { ValuesManagerService } from '../../values-manager.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog'
 
 import { TimerComponent } from '../timer/timer.component';
