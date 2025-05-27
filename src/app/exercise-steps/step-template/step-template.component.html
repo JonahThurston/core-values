@@ -4,7 +4,15 @@
 </section>
 
 <section class="step-container">
-    @if (stepNumber() === 1) {
-        <app-step-one></app-step-one>
+    @switch (stepNumber()) {
+        @case (1) {
+            <app-step-one></app-step-one>
+        }
+        @case (2) {
+            <app-step-two></app-step-two>
+        }
+        @case (3) {}
+        @case (4) {}
+        @default {}
     }
 </section>

@@ -5,11 +5,12 @@ import { RouterModule } from '@angular/router';
 
 import { TimerComponent } from '../timer/timer.component';
 import { StepOneComponent } from '../step-one/step-one.component';
+import { StepTwoComponent } from '../step-two/step-two.component';
 import { StepInstructionsComponent } from '../../step-instructions/step-instructions.component';
 
 @Component({
   selector: 'app-step-template',
-  imports: [RouterModule, TimerComponent, StepOneComponent],
+  imports: [RouterModule, TimerComponent, StepOneComponent, StepTwoComponent],
   templateUrl: './step-template.component.html',
   styleUrl: './step-template.component.css'
 })
