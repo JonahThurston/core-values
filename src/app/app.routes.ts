@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
-import { StepOneComponent } from './quiz-steps/step-one/step-one.component';
-import { StepTwoComponent } from './quiz-steps/step-two/step-two.component';
-import { StepTemplateComponent } from './quiz-steps/step-template/step-template.component';
+import { StepTemplateComponent } from './exercise-steps/step-template/step-template.component';
 import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
@@ -11,17 +9,8 @@ export const routes: Routes = [
         title: 'Home'
     },
     {
-        path: 'steps',
+        path: 'exercise',
         component: StepTemplateComponent,
-        children: [
-            {
-                path: 'one',
-                component: StepOneComponent,
-            },
-            {
-                path: 'two',
-                component: StepTwoComponent
-            }
-        ]
+        title: 'Core Values Exercise'
     }
 ];

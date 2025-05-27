@@ -5,41 +5,21 @@ import { ValuesManagerService } from '../../values-manager.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog'
 
 import { TimerComponent } from '../timer/timer.component';
-import { StepOneInstructionsComponent } from './step-one-instructions/step-one-instructions.component';
 import { StepOneReviewDialogueComponent } from './step-one-review-dialogue/step-one-review-dialogue.component';
 
 @Component({
   selector: 'app-step-one',
-  imports: [TimerComponent, NgIf, MatDialogModule],
+  imports: [NgIf, MatDialogModule],
   templateUrl: './step-one.component.html',
   styleUrl: './step-one.component.css'
 })
-export class StepOneComponent implements OnInit{
+export class StepOneComponent{
   valuesService = inject(ValuesManagerService);
   valueIndex = 0;
   numVals = this.valuesService.getValsLength();
   isFinished = false;
   readonly dialog = inject(MatDialog)
   @ViewChild(TimerComponent) timer!: TimerComponent;
-
-  ngOnInit(): void {
-    const introRef = this.dialog.open(StepOneInstructionsComponent);
-
-    introRef.afterClosed().subscribe(result => {
-      //console.log(`Dialog result: ${result}`);
-      this.timer.start();
-    });
-  }
-
-  openInstructions(): void{
-    this.timer.stop();
-    const introRef = this.dialog.open(StepOneInstructionsComponent);
-
-    introRef.afterClosed().subscribe(result => {
-      //console.log(`Dialog result: ${result}`);
-      this.timer.start();
-    });
-  }
 
   getCurrentWord(): string {
     if (this.valueIndex === this.numVals){

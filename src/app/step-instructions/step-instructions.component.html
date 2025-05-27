@@ -1,0 +1,9 @@
+<h2>Step {{stepNumber()}}</h2>
+<mat-dialog-content>
+    @if (stepNumber() === 1) {
+        <app-step-one-instructions></app-step-one-instructions>
+    }
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Begin</button>
+</mat-dialog-actions>

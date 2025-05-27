@@ -1,0 +1,10 @@
+<section class="top-bar">
+    <button class="iBall" (click)="openInstructions()">help</button>
+    <app-timer [minutesLeft]="7"></app-timer>
+</section>
+
+<section class="step-container">
+    @if (stepNumber() === 1) {
+        <app-step-one></app-step-one>
+    }
+</section>
