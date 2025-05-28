@@ -1,7 +1,7 @@
 import { Component, inject, model } from '@angular/core';
 import { NgIf } from '@angular/common';
 
-import { ValuesManagerService } from '../../values-manager.service';
+import { ValuesManagerService } from '../service/values-manager.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog'
 
 import { StepOneReviewDialogueComponent } from './step-one-review-dialogue/step-one-review-dialogue.component';
