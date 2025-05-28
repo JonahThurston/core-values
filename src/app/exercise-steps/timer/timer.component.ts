@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Input } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-timer',
@@ -7,7 +7,7 @@ import { Component, OnDestroy, Input } from '@angular/core';
   styleUrl: './timer.component.css'
 })
 export class TimerComponent implements OnDestroy{
-  @Input() minutesLeft: number = 10;
+  minutesLeft: number = 7;
   secondsLeft: number = 0;
   intervalId: any; //This is really supposed to be Nodejs.Timeout, but I dont care to figure that out. 
   timesUp: boolean = false;

@@ -1,6 +1,6 @@
 <section class="top-bar">
     <button class="iBall" (click)="openInstructions()">help</button>
-    <app-timer [minutesLeft]="7"></app-timer>
+    <app-timer></app-timer>
 </section>
 
 <section class="step-container">
@@ -13,6 +13,8 @@
         }
         @case (3) {}
         @case (4) {}
-        @default {}
+        @default {
+            <app-step-one [(stepNumber)]="stepNumber"></app-step-one>
+        }
     }
 </section>

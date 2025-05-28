@@ -20,10 +20,10 @@ export class StepTemplateComponent {
   readonly dialog = inject(MatDialog)
   @ViewChild(TimerComponent) timer!: TimerComponent;
 
-  
   constructor(){
     effect(() => {
-      if (this.timer){
+      const step = this.stepNumber();
+      if (step > 1 && this.timer){
         this.setNewTimer();
         this.openInstructions();
       }
@@ -37,6 +37,7 @@ export class StepTemplateComponent {
 
     introRef.afterClosed().subscribe(result => {
       //console.log(`Dialog result: ${result}`);
+      this.timer.reset(7);
       this.timer.start();
     });
   }
