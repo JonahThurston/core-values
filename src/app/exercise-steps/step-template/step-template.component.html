@@ -6,7 +6,7 @@
 <section class="step-container">
     @switch (stepNumber()) {
         @case (1) {
-            <app-step-one></app-step-one>
+            <app-step-one [(stepNumber)]="stepNumber"></app-step-one>
         }
         @case (2) {
             <app-step-two></app-step-two>

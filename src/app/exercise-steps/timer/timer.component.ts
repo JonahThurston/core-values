@@ -50,6 +50,11 @@ export class TimerComponent implements OnDestroy{
     clearInterval(this.intervalId);
   }
 
+  reset(minutes: number): void{
+    this.minutesLeft = minutes;
+    this.secondsLeft = 0;
+  }
+
   getTimeString(): string{
     const timesUpPrefix = this.timesUp ? '-' : '';
     const minutes = this.minutesLeft.toString().padStart(2, '0');

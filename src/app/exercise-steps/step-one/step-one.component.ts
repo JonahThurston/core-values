@@ -1,10 +1,9 @@
-import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, model } from '@angular/core';
 import { NgIf } from '@angular/common';
 
 import { ValuesManagerService } from '../../values-manager.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog'
 
-import { TimerComponent } from '../timer/timer.component';
 import { StepOneReviewDialogueComponent } from './step-one-review-dialogue/step-one-review-dialogue.component';
 
 @Component({
@@ -15,11 +14,13 @@ import { StepOneReviewDialogueComponent } from './step-one-review-dialogue/step-
 })
 export class StepOneComponent{
   valuesService = inject(ValuesManagerService);
+  readonly dialog = inject(MatDialog)
+
   valueIndex = 0;
   numVals = this.valuesService.getValsLength();
   isFinished = false;
-  readonly dialog = inject(MatDialog)
-  @ViewChild(TimerComponent) timer!: TimerComponent;
+
+  stepNumber = model(1);
 
   getCurrentWord(): string {
     if (this.valueIndex === this.numVals){
@@ -55,8 +56,14 @@ export class StepOneComponent{
   openReview() {
     const reviewRef = this.dialog.open(StepOneReviewDialogueComponent);
 
-    // reviewRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
+    reviewRef.afterClosed().subscribe(result => {
+      if (result === "proceed"){
+        this.proceedToNextStep();
+      }
+    });
+  }
+
+  proceedToNextStep() {
+    this.stepNumber.update(oldValue => oldValue + 1);
   }
 }
