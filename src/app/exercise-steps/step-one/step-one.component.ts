@@ -32,8 +32,8 @@ export class StepOneComponent{
   }
 
   valDecideTrash(trash: boolean) {
-    this.valuesService.setTrashed(this.valueIndex, trash);
     if (this.valueIndex < this.numVals){
+      this.valuesService.setTrashed(this.valueIndex, trash);
       this.valueIndex++;
       if (this.valueIndex === this.numVals){
         this.isFinished = true;
