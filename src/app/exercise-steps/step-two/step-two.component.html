@@ -1,11 +1,15 @@
 <button (click)="createBucket()">Create New Bucket</button>
 
 <section class="bucket-gallery">
-    <!-- for each bucket make a button  -->
+    @for (bucket of valuesService.userBuckets(); track bucket.id) {
+        <button (click)="openBucketDialogue(bucket.id)">edit bucket: {{bucket.id}}</button>
+    }
 
 </section>
 
 <section class="bottom-row">
     <button (click)="trashCurrentWord()">Trash</button>
-    <button (click)="proceedToNextStep()">Proceed</button>
+    @if (isFinished()) {
+        <button (click)="proceedToNextStep()">Proceed</button>
+    }
 </section>
