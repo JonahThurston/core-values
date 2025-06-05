@@ -58,6 +58,7 @@ export class StepOneComponent{
 
     reviewRef.afterClosed().subscribe(result => {
       if (result === "proceed"){
+        this.valuesService.cleanUserVals();
         this.proceedToNextStep();
       }
     });

@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { CoreValue } from './core-value';
-import { Observable, of, reduce } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { ValueBucket } from './value-bucket';
 
 //TS doesnt have a built in shuffle function :( I fully stole this from stackoverflow. Looks like it should work just fine tho. 
@@ -25,23 +25,23 @@ function shuffle(array : string[]) {
 export class ValuesManagerService {
   private userVals: CoreValue[];
   public userBuckets = signal<ValueBucket[]>([])
-
+  
   constructor() { 
     shuffle(testArray)
     //shuffle(valueArray);
     this.userVals = testArray.map((value, index) => ({
-    //this.userVals = valueArray.map((value, index) => ({
-      id: index,
-      value: value,
-      trashed: false
-    }));
-  }
-  
-  getValsLength(): number {
-    return this.userVals.length;
-  }
-
-  getValAt(index : number): CoreValue{
+      //this.userVals = valueArray.map((value, index) => ({
+        id: index,
+        value: value,
+        trashed: false
+      }));
+    }
+    
+    getValsLength(): number {
+      return this.userVals.length;
+    }
+    
+    getValAt(index : number): CoreValue{
     const val = this.userVals.at(index);
     if (val === undefined){
       throw new Error(`Tried to access invalid idex: ${index}`)
@@ -49,7 +49,7 @@ export class ValuesManagerService {
       return val;
     }
   }
-
+  
   setTrashed(index: number, trashed: boolean): void{
     if (index >= 0 && index < this.userVals.length){
       this.userVals[index].trashed = trashed;
@@ -57,45 +57,59 @@ export class ValuesManagerService {
       throw new Error(`Tried to access invalid idex: ${index}`);
     }
   }
-
+  
   getPercentTrashed(): number{
     const length = this.userVals.length
     const numTrashed = this.userVals.filter(value => value.trashed).length
     return length === 0 ? 0 : (numTrashed / length) * 100
   } 
-
+  
   //first time trying observables! Theyre kinda rad!
   getValsObservable(): Observable<CoreValue[]> {
     //So basically this of thing turns an array into an observable. If I was using an http.get it would already be observable and I wouldnt need an array
     return of(this.userVals);
   }
 
+  cleanUserVals(): void {
+    this.userVals = this.userVals.filter((value: CoreValue) => !value.trashed);
+  }
+  
   createBucket(){
     const lastId = this.userBuckets().length > 0
-      ? Math.max(...this.userBuckets().map(bucket => bucket.id))
-      : -1;
-
+    ? Math.max(...this.userBuckets().map(bucket => bucket.id))
+    : -1;
+    
     let newBucket: ValueBucket = {
       id: lastId + 1,
       color: 'red',
       values: []
     }
-
+    
     this.userBuckets.update(oldBuckets => {
       oldBuckets.push(newBucket);
       return oldBuckets;
     });
   }
-
+  
   deleteBucket(idToDelete: number){
     const originalLength = this.userBuckets().length;
     this.userBuckets.update((oldBuckets) => oldBuckets.filter(bucket => bucket.id !== idToDelete));
-
+    
     if (this.userBuckets().length === originalLength) {
       console.warn(`Bucket with id ${idToDelete} not found.`);
     }
   }
 
+  addToBucket(val: CoreValue, givenBucket: ValueBucket) {
+    givenBucket.values.push(val);
+
+    this.userBuckets.update(oldArray => {
+      const newArray = [...oldArray];
+      newArray[givenBucket.id] = givenBucket;
+      return newArray;
+    });
+  }
+  
   getAllBuckets() {
     this.userBuckets();
   }

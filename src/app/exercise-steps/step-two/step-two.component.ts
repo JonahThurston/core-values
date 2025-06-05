@@ -13,7 +13,7 @@ import { ValueBucket } from '../service/value-bucket';
 export class StepTwoComponent {
   valuesService = inject(ValuesManagerService);
   readonly dialog = inject(MatDialog)
-
+  
   stepNumber = model(2);
   currentIndex = signal(0)
   currentValue = computed(() => this.getValueByIndex(this.currentIndex()))
@@ -22,7 +22,7 @@ export class StepTwoComponent {
   valueIndex = 0;
   numVals = this.valuesService.getValsLength();
   isFinished = signal(false);
-
+  
   getValueByIndex(id: number): CoreValue {
     if (id >= this.numVals){
       return {id: -1, value: 'Finished', trashed: false}
@@ -35,15 +35,20 @@ export class StepTwoComponent {
   createBucket() {
     this.valuesService.createBucket();
   }
-
+  
   deleteBucket(id: number) {
     this.valuesService.deleteBucket(id);
   }
-
+  
+  
   openBucketDialogue(id: number) {
-
+    
   }
   
+  addValueToBucket(val: CoreValue, bucket: ValueBucket) {
+    this.valuesService.addToBucket(val, bucket);
+  }
+
   trashCurrentWord(){
     this.valuesService.setTrashed(this.currentValue().id, true);
     this.currentIndex.update(oldValue => oldValue + 1);
