@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ValuesManagerService } from '../service/values-manager.service';
 import { CoreValue } from '../service/core-value';
 import { ValueBucket } from '../service/value-bucket';
+import { BucketInfoDialogueComponent } from './bucket-info-dialogue/bucket-info-dialogue.component';
 
 @Component({
   selector: 'app-step-two',
@@ -25,7 +26,10 @@ export class StepTwoComponent {
   
   getValueByIndex(id: number): CoreValue {
     if (id >= this.numVals){
-      return {id: -1, value: 'Finished', trashed: false}
+      throw new Error("index out of range: " + id);
+    }
+    else if (id === -1){
+      return {id: -1, value: "Finished!", trashed: false}
     }
     else{
       return this.valuesService.getValAt(id);
@@ -41,17 +45,36 @@ export class StepTwoComponent {
   }
   
   
-  openBucketDialogue(id: number) {
+  openBucketDialogue(bucket: ValueBucket) {
+    const reviewRef = this.dialog.open(BucketInfoDialogueComponent, {
+      data: {inputBucket: bucket}
+    });
     
+    reviewRef.afterClosed().subscribe(result => {
+      //console.log(result);
+    });
   }
   
   addValueToBucket(val: CoreValue, bucket: ValueBucket) {
-    this.valuesService.addToBucket(val, bucket);
+    if(!this.isFinished()){
+      this.valuesService.addToBucket(val, bucket);
+      this.advanceIndex();
+    }
   }
 
   trashCurrentWord(){
-    this.valuesService.setTrashed(this.currentValue().id, true);
-    this.currentIndex.update(oldValue => oldValue + 1);
+    if(!this.isFinished()){
+      this.valuesService.setTrashed(this.currentValue().id, true);
+      this.advanceIndex();
+    }
+  }
+
+  advanceIndex() {
+    const currInd: number = this.currentIndex();
+    this.currentIndex.set(this.valuesService.getNextNotTrashedId(currInd));
+    if(this.currentIndex() === -1){
+      this.isFinished.set(true);
+    }
   }
 
   proceedToNextStep(){

@@ -1,0 +1,11 @@
+<h2>Edit Bucket #{{bucket.id + 1}}</h2>
+<mat-dialog-content>
+    @for (bucketValue of bucketVals; track bucketValue.id) {
+        <div class="bucket-val">
+            <p>{{bucketValue.value}}</p>
+        </div>
+    }
+</mat-dialog-content>
+<mat-dialog-actions>
+    
+</mat-dialog-actions>

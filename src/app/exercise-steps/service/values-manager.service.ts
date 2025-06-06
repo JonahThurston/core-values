@@ -70,8 +70,13 @@ export class ValuesManagerService {
     return of(this.userVals);
   }
 
-  cleanUserVals(): void {
-    this.userVals = this.userVals.filter((value: CoreValue) => !value.trashed);
+  getNextNotTrashedId(currIndex: number): number{
+    for (let i = currIndex + 1; i < this.userVals.length; i++) {
+      if (!this.userVals[i].trashed){
+        return i;
+      }
+    }
+    return -1;
   }
   
   createBucket(){
@@ -100,9 +105,13 @@ export class ValuesManagerService {
     }
   }
 
-  addToBucket(val: CoreValue, givenBucket: ValueBucket) {
-    givenBucket.values.push(val);
+  addToBucket(valToAdd: CoreValue, givenBucket: ValueBucket) {
+    const alreadyExistsAt = givenBucket.values.findIndex(value => value.id === valToAdd.id)
+    if (alreadyExistsAt != -1){
+      return;
+    }
 
+    givenBucket.values.push(valToAdd);
     this.userBuckets.update(oldArray => {
       const newArray = [...oldArray];
       newArray[givenBucket.id] = givenBucket;

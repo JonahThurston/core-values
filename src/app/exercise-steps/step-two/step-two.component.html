@@ -3,7 +3,7 @@
 <section class="bucket-gallery">
     @for (bucket of valuesService.userBuckets(); track bucket.id) {
         <div class="bucket">
-            <button (click)="openBucketDialogue(bucket.id)">edit bucket: {{bucket.id}}</button>
+            <button (click)="openBucketDialogue(bucket)">edit bucket: {{bucket.id + 1}}</button>
             <button (click)="addValueToBucket(currentValue(), bucket)">add value</button>
         </div>
     }
