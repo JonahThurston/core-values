@@ -118,9 +118,31 @@ export class ValuesManagerService {
       return newArray;
     });
   }
+
+  switchBuckets(valToSwitch: CoreValue, oldBucket: ValueBucket, newBucket: ValueBucket) {
+    const oldBucketIndex = oldBucket.values.findIndex(value => value.id === valToSwitch.id)
+    if (oldBucketIndex === -1){
+      console.warn(`tried to bucket switch a value that couldn't be found in the original bucket. id: ${valToSwitch.id}`)
+      return
+    }
+    const newBucketIndex = newBucket.values.findIndex(value => value.id === valToSwitch.id)
+    if (newBucketIndex != -1){
+      console.warn(`tried to bucket switch a value that was already in the new bucket. id: ${valToSwitch.id}`)
+      return
+    }
+
+    oldBucket.values.splice(oldBucketIndex, 1);
+    newBucket.values.push(valToSwitch);
+    this.userBuckets.update(oldArray => {
+      const newArray = [...oldArray];
+      newArray[oldBucket.id] = oldBucket;
+      newArray[newBucket.id] = newBucket
+      return newArray;
+    });
+  }
   
   getAllBuckets() {
-    this.userBuckets();
+    return this.userBuckets();
   }
 }
 

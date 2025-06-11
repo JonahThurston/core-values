@@ -3,6 +3,7 @@
     @for (bucketValue of bucketVals; track bucketValue.id) {
         <div class="bucket-val">
             <p>{{bucketValue.value}}</p>
+            <app-switch-bucket-menu [oldBucket]="bucket" [value]="bucketValue"></app-switch-bucket-menu>
         </div>
     }
 </mat-dialog-content>
