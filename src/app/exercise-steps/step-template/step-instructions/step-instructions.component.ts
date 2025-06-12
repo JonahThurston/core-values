@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, model } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 
-import { StepOneInstructionsComponent } from '../exercise-steps/step-one/step-one-instructions/step-one-instructions.component';
+import { StepOneInstructionsComponent } from '../../step-one/step-one-instructions/step-one-instructions.component';
 
 export interface DialogData {
   stepNumber: number;

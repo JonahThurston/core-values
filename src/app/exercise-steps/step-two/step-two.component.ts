@@ -44,7 +44,6 @@ export class StepTwoComponent {
     this.valuesService.deleteBucket(id);
   }
   
-  
   openBucketDialogue(bucket: ValueBucket) {
     const reviewRef = this.dialog.open(BucketInfoDialogueComponent, {
       data: {inputBucket: bucket}

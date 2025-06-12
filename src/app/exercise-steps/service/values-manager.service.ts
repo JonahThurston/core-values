@@ -24,13 +24,17 @@ function shuffle(array : string[]) {
 })
 export class ValuesManagerService {
   private userVals: CoreValue[];
-  public userBuckets = signal<ValueBucket[]>([])
+  public userBuckets = signal<ValueBucket[]>([
+    {id: 0, color: 'red', values: []},
+    {id: 1, color: 'red', values: []},
+    {id: 2, color: 'red', values: []},
+  ])
   
   constructor() { 
-    shuffle(testArray)
     //shuffle(valueArray);
+    //this.userVals = valueArray.map((value, index) => ({
+    shuffle(testArray)
     this.userVals = testArray.map((value, index) => ({
-      //this.userVals = valueArray.map((value, index) => ({
         id: index,
         value: value,
         trashed: false
@@ -83,6 +87,10 @@ export class ValuesManagerService {
     const lastId = this.userBuckets().length > 0
     ? Math.max(...this.userBuckets().map(bucket => bucket.id))
     : -1;
+
+    if (lastId === 7) {
+      return;
+    }
     
     let newBucket: ValueBucket = {
       id: lastId + 1,
@@ -98,6 +106,11 @@ export class ValuesManagerService {
   
   deleteBucket(idToDelete: number){
     const originalLength = this.userBuckets().length;
+
+    if (originalLength <= 3) {
+      return;
+    }
+
     this.userBuckets.update((oldBuckets) => oldBuckets.filter(bucket => bucket.id !== idToDelete));
     
     if (this.userBuckets().length === originalLength) {
@@ -117,6 +130,23 @@ export class ValuesManagerService {
       newArray[givenBucket.id] = givenBucket;
       return newArray;
     });
+  }
+
+  trashValFromBucket(valToDelete: CoreValue, bucket: ValueBucket) {
+    const foundAt = bucket.values.findIndex(value => value.id === valToDelete.id)
+    if (foundAt === -1){
+      console.error(`Tried to delete val from bucket it was not it: ${valToDelete.id}`)
+      return;
+    }
+
+    this.setTrashed(valToDelete.id, true);
+
+    bucket.values.splice(foundAt, 1);
+    this.userBuckets.update(oldArray => {
+      const newArray = [...oldArray];
+      newArray[bucket.id] = bucket;
+      return newArray;
+    })
   }
 
   switchBuckets(valToSwitch: CoreValue, oldBucket: ValueBucket, newBucket: ValueBucket) {

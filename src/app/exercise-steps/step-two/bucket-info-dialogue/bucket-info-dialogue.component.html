@@ -1,12 +1,17 @@
 <h2>Edit Bucket #{{bucket.id + 1}}</h2>
 <mat-dialog-content>
+    @if (this.bucket.values.length > 0) {
+        <button [ngClass]="{'disabled': canDeleteBucket}">delete bucket</button>
+
+    }
     @for (bucketValue of bucketVals; track bucketValue.id) {
         <div class="bucket-val">
             <p>{{bucketValue.value}}</p>
+            <button (click)="trashBucketVal(bucketValue)">Trash Value</button>
             <app-switch-bucket-menu [oldBucket]="bucket" [value]="bucketValue"></app-switch-bucket-menu>
         </div>
     }
 </mat-dialog-content>
 <mat-dialog-actions>
-    
+
 </mat-dialog-actions>
