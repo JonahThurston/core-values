@@ -4,6 +4,7 @@ import { ValuesManagerService } from '../service/values-manager.service';
 import { CoreValue } from '../service/core-value';
 import { ValueBucket } from '../service/value-bucket';
 import { BucketInfoDialogueComponent } from './bucket-info-dialogue/bucket-info-dialogue.component';
+import { ConfirmationDialogueComponent } from '../confirmation-dialogue/confirmation-dialogue.component';
 
 @Component({
   selector: 'app-step-two',
@@ -18,7 +19,8 @@ export class StepTwoComponent {
   stepNumber = model(2);
   currentIndex = signal(0)
   currentValue = computed(() => this.getValueByIndex(this.currentIndex()))
-  buckets = signal<ValueBucket[]>([])
+  buckets = this.valuesService.getBucketSignal();
+  numBuckets = computed(() => this.buckets().length)
   
   valueIndex = 0;
   numVals = this.valuesService.getValsLength();
@@ -63,8 +65,16 @@ export class StepTwoComponent {
 
   trashCurrentWord(){
     if(!this.isFinished()){
-      this.valuesService.setTrashed(this.currentValue().id, true);
-      this.advanceIndex();
+      const reviewRef = this.dialog.open(ConfirmationDialogueComponent, {
+          data: {message: `Are you sure you want to trash value: ${this.currentValue().value}`}
+        });
+      
+      reviewRef.afterClosed().subscribe(result => {
+        if (result === "confirm"){
+          this.valuesService.setTrashed(this.currentValue().id, true);
+          this.advanceIndex();
+        }
+      });
     }
   }
 

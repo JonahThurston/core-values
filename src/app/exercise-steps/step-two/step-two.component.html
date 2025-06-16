@@ -1,7 +1,9 @@
-<button (click)="createBucket()">Create New Bucket</button>
+@if(buckets().length < 8) {
+    <button (click)="createBucket()">Create New Bucket</button>
+}
 
 <section class="bucket-gallery">
-    @for (bucket of valuesService.userBuckets(); track bucket.id) {
+    @for (bucket of buckets(); track bucket.id) {
         <div class="bucket">
             <button (click)="openBucketDialogue(bucket)">edit bucket: {{bucket.id + 1}}</button>
             <button (click)="addValueToBucket(currentValue(), bucket)">add value</button>
@@ -12,8 +14,10 @@
 
 <section class="bottom-row">
     <p>{{currentValue().value}}</p>
-    <button (click)="trashCurrentWord()">Trash</button>
-    @if (isFinished()) {
+    @if (!isFinished()) {
+        <button (click)="trashCurrentWord()">Trash</button>
+    }
+    @else {
         <button (click)="proceedToNextStep()">Proceed</button>
     }
 </section>

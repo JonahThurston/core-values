@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, model } from '@angular/core
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 
 import { StepOneInstructionsComponent } from '../../step-one/step-one-instructions/step-one-instructions.component';
+import { StepTwoInstructionsComponent } from '../../step-two/step-two-instructions/step-two-instructions.component';
 
 export interface DialogData {
   stepNumber: number;
@@ -9,7 +10,7 @@ export interface DialogData {
 
 @Component({
   selector: 'app-step-instructions',
-  imports: [MatDialogModule, StepOneInstructionsComponent],
+  imports: [MatDialogModule, StepOneInstructionsComponent, StepTwoInstructionsComponent],
   templateUrl: './step-instructions.component.html',
   styleUrl: './step-instructions.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

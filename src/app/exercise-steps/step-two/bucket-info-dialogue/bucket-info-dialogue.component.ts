@@ -20,7 +20,8 @@ export class BucketInfoDialogueComponent {
   bucket: ValueBucket = this.data.inputBucket;
   bucketVals: CoreValue[] = this.bucket.values;
   readonly dialog = inject(MatDialog);
-  canDeleteBucket = this.bucket.values.length > 0
+  canDeleteBucket = this.bucket.values.length > 0;
+  numberOfBuckets = this.valuesService.getAllBuckets().length
 
   trashBucketVal = (val: CoreValue) => {
     const reviewRef = this.dialog.open(ConfirmationDialogueComponent, {
@@ -32,6 +33,10 @@ export class BucketInfoDialogueComponent {
         this.valuesService.trashValFromBucket(val, this.bucket)
       }
     });
+  }
+
+  deleteBucket = () => {
+    this.valuesService.deleteBucket(this.bucket.id);
   }
 
 }

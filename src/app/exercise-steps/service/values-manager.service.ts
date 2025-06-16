@@ -88,7 +88,7 @@ export class ValuesManagerService {
     ? Math.max(...this.userBuckets().map(bucket => bucket.id))
     : -1;
 
-    if (lastId === 7) {
+    if (this.userBuckets().length > 7) {
       return;
     }
     
@@ -173,6 +173,10 @@ export class ValuesManagerService {
   
   getAllBuckets() {
     return this.userBuckets();
+  }
+
+  getBucketSignal() {
+    return this.userBuckets;
   }
 }
 
