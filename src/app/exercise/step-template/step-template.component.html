@@ -1,0 +1,29 @@
+@if (stepNumber() < 5) {
+    <section class="top-bar">
+        <button class="iBall" (click)="openInstructions()">help</button>
+        <app-timer></app-timer>
+    </section>
+}
+
+<section class="step-container">
+    @switch (stepNumber()) {
+        @case (1) {
+            <app-step-one [(stepNumber)]="stepNumber"></app-step-one>
+        }
+        @case (2) {
+            <app-step-two [(stepNumber)]="stepNumber"></app-step-two>
+        }
+        @case (3) {
+            <app-step-three [(stepNumber)]="stepNumber"></app-step-three>
+        }
+        @case (4) {
+            <app-step-four [(stepNumber)]="stepNumber"></app-step-four>
+        }
+        @case (5) {
+            <app-podium></app-podium>
+        }
+        @default {
+            <app-step-one [(stepNumber)]="stepNumber"></app-step-one>
+        }
+    }
+</section>

@@ -1,8 +1,8 @@
 import { Component, inject, Input, input, OnInit } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
-import { ValueBucket } from '../../../service/value-bucket';
-import { ValuesManagerService } from '../../../service/values-manager.service';
-import { CoreValue } from '../../../service/core-value';
+import { CoreValue } from '../../../../service/core-value';
+import { ValueBucket } from '../../../../service/value-bucket';
+import { ValuesManagerService } from '../../../../service/values-manager.service';
 
 @Component({
   selector: 'app-switch-bucket-menu',

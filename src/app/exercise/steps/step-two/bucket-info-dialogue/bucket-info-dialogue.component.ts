@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
-import { ValuesManagerService } from '../../service/values-manager.service';
-import { CoreValue } from '../../service/core-value';
-import { ValueBucket } from '../../service/value-bucket';
+import { ConfirmationDialogueComponent } from '../../../confirmation-dialogue/confirmation-dialogue.component';
+import { CoreValue } from '../../../service/core-value';
+import { ValueBucket } from '../../../service/value-bucket';
+import { ValuesManagerService } from '../../../service/values-manager.service';
 import { SwitchBucketMenuComponent } from './switch-bucket-menu/switch-bucket-menu.component';
-import { ConfirmationDialogueComponent } from '../../confirmation-dialogue/confirmation-dialogue.component';
 
 @Component({
   selector: 'app-bucket-info-dialogue',

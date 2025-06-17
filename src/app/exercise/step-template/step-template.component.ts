@@ -4,13 +4,16 @@ import { MatDialog } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 
 import { TimerComponent } from '../timer/timer.component';
-import { StepOneComponent } from '../step-one/step-one.component';
-import { StepTwoComponent } from '../step-two/step-two.component';
+import { StepOneComponent } from '../steps/step-one/step-one.component';
+import { StepTwoComponent } from '../steps/step-two/step-two.component';
 import { StepInstructionsComponent } from './step-instructions/step-instructions.component';
+import { StepThreeComponent } from '../steps/step-three/step-three.component';
+import { StepFourComponent } from '../steps/step-four/step-four.component';
+import { PodiumComponent } from '../steps/podium/podium.component';
 
 @Component({
   selector: 'app-step-template',
-  imports: [RouterModule, TimerComponent, StepOneComponent, StepTwoComponent],
+  imports: [RouterModule, TimerComponent, StepOneComponent, StepTwoComponent, StepThreeComponent, StepFourComponent, PodiumComponent],
   templateUrl: './step-template.component.html',
   styleUrl: './step-template.component.css'
 })
@@ -23,7 +26,7 @@ export class StepTemplateComponent {
   constructor(){
     effect(() => {
       const step = this.stepNumber();
-      if (step > 1 && this.timer){
+      if (step > 1 && step < 5 && this.timer){
         this.setNewTimer();
         this.openInstructions();
       }

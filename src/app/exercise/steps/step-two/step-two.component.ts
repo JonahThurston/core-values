@@ -1,10 +1,10 @@
 import { Component, computed, inject, model, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ValuesManagerService } from '../service/values-manager.service';
-import { CoreValue } from '../service/core-value';
-import { ValueBucket } from '../service/value-bucket';
 import { BucketInfoDialogueComponent } from './bucket-info-dialogue/bucket-info-dialogue.component';
-import { ConfirmationDialogueComponent } from '../confirmation-dialogue/confirmation-dialogue.component';
+import { ConfirmationDialogueComponent } from '../../confirmation-dialogue/confirmation-dialogue.component';
+import { CoreValue } from '../../service/core-value';
+import { ValueBucket } from '../../service/value-bucket';
+import { ValuesManagerService } from '../../service/values-manager.service';
 
 @Component({
   selector: 'app-step-two',
