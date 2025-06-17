@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
-import { ConfirmationDialogueComponent } from '../../../confirmation-dialogue/confirmation-dialogue.component';
-import { CoreValue } from '../../../service/core-value';
-import { ValueBucket } from '../../../service/value-bucket';
-import { ValuesManagerService } from '../../../service/values-manager.service';
+import { ConfirmationDialogueComponent } from '../confirmation-dialogue/confirmation-dialogue.component';
+import { CoreValue } from '../service/core-value';
+import { ValueBucket } from '../service/value-bucket';
+import { ValuesManagerService } from '../service/values-manager.service';
 import { SwitchBucketMenuComponent } from './switch-bucket-menu/switch-bucket-menu.component';
 
 @Component({
@@ -16,9 +16,12 @@ import { SwitchBucketMenuComponent } from './switch-bucket-menu/switch-bucket-me
 })
 export class BucketInfoDialogueComponent {
   valuesService = inject(ValuesManagerService);
+
   data = inject(MAT_DIALOG_DATA);
+  stepNumber = this.data.stepNumber;
   bucket: ValueBucket = this.data.inputBucket;
   bucketVals: CoreValue[] = this.bucket.values;
+  
   readonly dialog = inject(MatDialog);
   canDeleteBucket = this.bucket.values.length > 0;
   numberOfBuckets = this.valuesService.getAllBuckets().length

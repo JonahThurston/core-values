@@ -1,6 +1,6 @@
 import { Component, computed, inject, model, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { BucketInfoDialogueComponent } from './bucket-info-dialogue/bucket-info-dialogue.component';
+import { BucketInfoDialogueComponent } from '../../bucket-info-dialogue/bucket-info-dialogue.component';
 import { ConfirmationDialogueComponent } from '../../confirmation-dialogue/confirmation-dialogue.component';
 import { CoreValue } from '../../service/core-value';
 import { ValueBucket } from '../../service/value-bucket';
@@ -48,7 +48,7 @@ export class StepTwoComponent {
   
   openBucketDialogue(bucket: ValueBucket) {
     const reviewRef = this.dialog.open(BucketInfoDialogueComponent, {
-      data: {inputBucket: bucket}
+      data: {inputBucket: bucket, stepNumber: this.stepNumber()}
     });
     
     reviewRef.afterClosed().subscribe(result => {

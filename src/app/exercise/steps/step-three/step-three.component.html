@@ -1,2 +1,9 @@
-<p>step-three works!</p>
+<section class="bucket-gallery">
+    @for (bucket of buckets(); track bucket.id) {
+        <div class="bucket">
+            <button (click)="openBucketDialogue(bucket)">edit bucket: {{bucket.name}}</button>
+        </div>
+    }
+</section>
+
 <button (click)="proceedToNextStep()">Proceed</button>

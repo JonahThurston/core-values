@@ -1,8 +1,8 @@
 import { Component, inject, Input, input, OnInit } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
-import { CoreValue } from '../../../../service/core-value';
-import { ValueBucket } from '../../../../service/value-bucket';
-import { ValuesManagerService } from '../../../../service/values-manager.service';
+import { CoreValue } from '../../service/core-value';
+import { ValueBucket } from '../../service/value-bucket';
+import { ValuesManagerService } from '../../service/values-manager.service';
 
 @Component({
   selector: 'app-switch-bucket-menu',
@@ -20,7 +20,7 @@ import { ValuesManagerService } from '../../../../service/values-manager.service
 export class SwitchBucketMenuComponent implements OnInit{
   valuesService = inject(ValuesManagerService);
 
-  @Input() oldBucket: ValueBucket = {id: -1, color: 'red', values: []};
+  @Input() oldBucket: ValueBucket = {id: -1, name: 'defaultGeneratedBucket', color: 'red', values: []};
   @Input() value: CoreValue = {id: -1, value: 'default', trashed: true}
   bucketList: ValueBucket[] = [];
 

@@ -25,9 +25,9 @@ function shuffle(array : string[]) {
 export class ValuesManagerService {
   private userVals: CoreValue[];
   public userBuckets = signal<ValueBucket[]>([
-    {id: 0, color: 'red', values: []},
-    {id: 1, color: 'red', values: []},
-    {id: 2, color: 'red', values: []},
+    {id: 0, name: 'Name not set', color: 'red', values: []},
+    {id: 1, name: 'Name not set', color: 'red', values: []},
+    {id: 2, name: 'Name not set', color: 'red', values: []},
   ])
   
   constructor() { 
@@ -94,6 +94,7 @@ export class ValuesManagerService {
     
     let newBucket: ValueBucket = {
       id: lastId + 1,
+      name: 'Name not set',
       color: 'red',
       values: []
     }
