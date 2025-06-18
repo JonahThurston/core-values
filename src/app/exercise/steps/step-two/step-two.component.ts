@@ -5,16 +5,23 @@ import { ConfirmationDialogueComponent } from '../../confirmation-dialogue/confi
 import { CoreValue } from '../../service/core-value';
 import { ValueBucket } from '../../service/value-bucket';
 import { ValuesManagerService } from '../../service/values-manager.service';
+import {
+  CdkDrag,
+  CdkDragDrop,
+  CdkDropList,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-step-two',
-  imports: [],
+  imports: [CdkDropList, CdkDrag],
   templateUrl: './step-two.component.html',
   styleUrl: './step-two.component.css'
 })
 export class StepTwoComponent {
   valuesService = inject(ValuesManagerService);
-  readonly dialog = inject(MatDialog)
+  readonly dialog = inject(MatDialog);
   
   stepNumber = model(2);
   currentIndex = signal(0)
@@ -56,6 +63,11 @@ export class StepTwoComponent {
     });
   }
   
+  drop(event: CdkDragDrop<ValueBucket>) {
+    console.log(`drop occured. dropped item: ${event.item.data}. Dropped into bucket: event.container.data`)
+    this.addValueToBucket(event.item.data, event.container.data);
+  }
+
   addValueToBucket(val: CoreValue, bucket: ValueBucket) {
     if(!this.isFinished()){
       this.valuesService.addToBucket(val, bucket);

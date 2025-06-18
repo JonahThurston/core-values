@@ -2,17 +2,26 @@
     <button (click)="createBucket()">Create New Bucket</button>
 }
 
-<section class="bucket-gallery">
+<section class="bucket-gallery" cdkDropListGroup>
+
+    <div cdkDropList class="curr-value-holder">
+        <p cdkDrag class="curr-value" [cdkDragData]="currentValue()">{{currentValue().value}}</p>
+    </div>
     @for (bucket of buckets(); track bucket.id) {
-        <div class="bucket">
-            <button (click)="openBucketDialogue(bucket)">edit bucket: {{bucket.id + 1}}</button>
-            <button (click)="addValueToBucket(currentValue(), bucket)">add value</button>
+        <div 
+            cdkDropList
+            class="bucket"
+            [cdkDropListData]="bucket" 
+            (cdkDropListDropped)="drop($event)"
+            (click)="openBucketDialogue(bucket)">
+            <button (click)="addValueToBucket(currentValue(), bucket)" >add value</button>
         </div>
     }
+
+
 </section>
 
 <section class="bottom-row">
-    <p>{{currentValue().value}}</p>
     @if (!isFinished()) {
         <button (click)="trashCurrentWord()">Trash</button>
     }
