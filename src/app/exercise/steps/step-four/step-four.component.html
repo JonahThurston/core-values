@@ -1,2 +1,6 @@
-<p>step-four works!</p>
+<div cdkDropList class="name-ordering-list" (cdkDropListDropped)="drop($event)">
+    @for (bucket of allBuckets(); track bucket.id) {
+        <div class="orderable-name" cdkDrag>{{bucket.name}}</div>
+    }
+</div>
 <button (click)="proceedToNextStep()">Proceed</button>
