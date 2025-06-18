@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ValuesManagerService } from '../../service/values-manager.service';
 
 @Component({
   selector: 'app-podium',
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './podium.component.css'
 })
 export class PodiumComponent {
+  valuesService = inject(ValuesManagerService);
+  allBuckets = this.valuesService.getBucketSignal();
 
 }
