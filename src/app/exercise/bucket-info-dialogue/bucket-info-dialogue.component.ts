@@ -7,15 +7,17 @@ import { CoreValue } from '../service/core-value';
 import { ValueBucket } from '../service/value-bucket';
 import { ValuesManagerService } from '../service/values-manager.service';
 import { SwitchBucketMenuComponent } from './switch-bucket-menu/switch-bucket-menu.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-bucket-info-dialogue',
-  imports: [MatDialogModule, CommonModule, RouterModule, SwitchBucketMenuComponent],
+  imports: [MatDialogModule, CommonModule, RouterModule, SwitchBucketMenuComponent, FormsModule],
   templateUrl: './bucket-info-dialogue.component.html',
   styleUrl: './bucket-info-dialogue.component.css',
 })
 export class BucketInfoDialogueComponent {
   valuesService = inject(ValuesManagerService);
+  allBuckets = this.valuesService.getBucketSignal();
 
   data = inject(MAT_DIALOG_DATA);
   stepNumber = this.data.stepNumber;
@@ -40,6 +42,14 @@ export class BucketInfoDialogueComponent {
 
   deleteBucket = () => {
     this.valuesService.deleteBucket(this.bucket.id);
+  }
+
+  updateBucketName = (name: string) => {
+    this.allBuckets.update((oldArray) => {
+      const newArray = [...oldArray];
+      newArray[this.bucket.id] = this.bucket;
+      return newArray;
+    })
   }
 
 }

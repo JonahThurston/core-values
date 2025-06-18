@@ -6,4 +6,6 @@
     }
 </section>
 
-<button (click)="proceedToNextStep()">Proceed</button>
+@if (isFinished()) {
+    <button (click)="proceedToNextStep()">Proceed</button>
+}

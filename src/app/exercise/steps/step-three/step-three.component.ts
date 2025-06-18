@@ -1,4 +1,4 @@
-import { Component, inject, model } from '@angular/core';
+import { Component, computed, effect, inject, model } from '@angular/core';
 import { ValuesManagerService } from '../../service/values-manager.service';
 import { ValueBucket } from '../../service/value-bucket';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,10 +20,11 @@ export class StepThreeComponent {
   valuesService = inject(ValuesManagerService);
   buckets = this.valuesService.getBucketSignal();
   readonly dialog = inject(MatDialog)
+  isFinished = computed(() => !this.buckets().some(bucketToCheck => bucketToCheck.name === 'Name not set'))
 
   openBucketDialogue(bucket: ValueBucket) {
     const reviewRef = this.dialog.open(BucketInfoDialogueComponent, {
-      data: {inputBucket: bucket}
+      data: {inputBucket: bucket, stepNumber: 3}
     });
     
     reviewRef.afterClosed().subscribe(result => {
