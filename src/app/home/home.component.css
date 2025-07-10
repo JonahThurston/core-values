@@ -1,0 +1,46 @@
+.header{
+  background-color: var(--secondary-color);
+  width: 100vw;
+  padding: 0.5em;
+  margin-bottom: 12px;
+  box-shadow: 0px 12px 12px 0px var(--dropshadow-color);
+  
+  .title{
+    justify-self: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+}
+
+.explanation-text{
+  color: white;
+  margin-inline: 10px;
+
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 0.1rem;
+
+  li + li {
+    margin-top: 20px;
+  }
+}
+
+.start-button{
+  margin-bottom: 10px;
+
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 0.1rem;
+
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+
+  background-color: black;
+  color: var(--primary-color);
+
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.start-button:hover {
+  opacity: 0.5; /* Opacity on hover (50% transparent) */
+}

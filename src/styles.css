@@ -1,4 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --primary-color: #139ba5;
+  --secondary-color: #fcce0e;
+  --dropshadow-color: rgb(70, 57, 57);
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.page{
+  height: 100vh;
+  width: 100vw;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  overflow: hidden;
+  background-color: var(--primary-color);
+}
