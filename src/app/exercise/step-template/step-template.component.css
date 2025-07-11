@@ -1,0 +1,23 @@
+.step-template{
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+
+  .header{
+    flex: 1;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .step-displayer{
+    flex: 11;
+
+    *{
+      display: block;
+      height: 100%;
+    }
+  }
+}
+
+
