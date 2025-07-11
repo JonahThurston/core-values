@@ -1,13 +1,15 @@
-<h2>Double Check Your Decisions</h2>
-<mat-dialog-content>
-    <div *ngFor="let value of userVals">
-        <div class="value-card" [ngClass]="{'trashed-card': value.trashed}">
-            <p>{{value.id + 1}}</p>
-            <p>{{value.value}}</p>
-            <button class="trash-toggle" (click)="setTrash(value.id, !value.trashed)">trash toggle</button>
-        </div>
-    </div>
-</mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-button mat-dialog-close="proceed" >On to Step 2</button>
-</mat-dialog-actions>
+<div class="dialogue">
+  <h2 class="dialogue-title">Double Check Your Decisions</h2>
+  <mat-dialog-content class="dialogue-body">
+      <div *ngFor="let value of userVals">
+          <div class="value-card" [ngClass]="{'trashed-card': value.trashed}">
+              <p>{{value.id + 1}}</p>
+              <p>{{value.value}}</p>
+              <button class="trash-toggle" (click)="setTrash(value.id, !value.trashed)">trash toggle</button>
+          </div>
+      </div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="dialogue-buttons">
+      <button mat-button mat-dialog-close="proceed" >On to Step 2</button>
+  </mat-dialog-actions>
+</div>

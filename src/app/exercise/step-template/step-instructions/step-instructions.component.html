@@ -1,23 +1,25 @@
-<h2>Step {{stepNumber()}}</h2>
-<mat-dialog-content>
-    @switch (stepNumber()) {
-        @case (1) {
-            <app-step-one-instructions></app-step-one-instructions>
-        }
-        @case (2) {
-            <app-step-two-instructions></app-step-two-instructions>
-        }
-        @case (3) {
-            <app-step-three-instructions></app-step-three-instructions>
-        }
-        @case (4) {
-            <app-step-four-instructions></app-step-four-instructions>
-        }
-        @default {
-            <app-step-one-instructions></app-step-one-instructions>
-        }
-    }
-</mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-button mat-dialog-close>Begin</button>
-</mat-dialog-actions>
+<div class="dialogue">
+  <h2 class="dialogue-title">Step {{stepNumber()}}</h2>
+  <mat-dialog-content class="dialogue-body">
+      @switch (stepNumber()) {
+          @case (1) {
+              <app-step-one-instructions></app-step-one-instructions>
+          }
+          @case (2) {
+              <app-step-two-instructions></app-step-two-instructions>
+          }
+          @case (3) {
+              <app-step-three-instructions></app-step-three-instructions>
+          }
+          @case (4) {
+              <app-step-four-instructions></app-step-four-instructions>
+          }
+          @default {
+              <app-step-one-instructions></app-step-one-instructions>
+          }
+      }
+  </mat-dialog-content>
+  <mat-dialog-actions class="dialogue-buttons">
+      <button mat-button mat-dialog-close>Begin</button>
+  </mat-dialog-actions>
+</div>
