@@ -1,0 +1,14 @@
+.timer-text{
+  color: red;
+  font-family: 'segment-eglas', sans-serif;
+  font-size: x-large;
+  font-weight: 900;
+  letter-spacing: 3px;
+
+  background-color: darkslategrey;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 10px;
+
+  text-align: center;
+}

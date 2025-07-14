@@ -8,6 +8,21 @@
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    .iBall{
+      border-radius: 50%;
+      height: 40px;
+      width: 40px;
+      margin-left: 10px;
+
+      font-size: x-large;
+      font-weight: 900;
+    }
+
+    .timer{
+      margin-right: 10px;
+    }
   }
 
   .step-displayer{

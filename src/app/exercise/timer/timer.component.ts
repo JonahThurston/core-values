@@ -3,7 +3,7 @@ import { Component, OnDestroy } from '@angular/core';
 @Component({
   selector: 'app-timer',
   imports: [],
-  template: '<p>{{getTimeString()}}</p>',
+  template: '<p class="timer-text">{{getTimeString()}}</p>',
   styleUrl: './timer.component.css'
 })
 export class TimerComponent implements OnDestroy{
