@@ -44,7 +44,6 @@ app-step-template{
 .main-content{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   height: inherit;
 }

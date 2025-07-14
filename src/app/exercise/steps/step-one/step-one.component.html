@@ -1,24 +1,29 @@
 <main class="main-content">
     <div class="top-info">
         <p class="percent-box">{{getTrashedPercent()}}%</p>
+        <p class="percent-label">Percent of words deleted</p>
     </div>
 
-    <div>
+    <div class="value-card">
         {{getCurrentWord()}}
     </div>
 
-    <div>
+    <div class="decision-buttons">
+        @if (isFinished) {
+          <button (click)="openReview()">Next step button placeholder</button>
+        }
+        @else {
         <button class="left-arrow" (click)="valDecideTrash(true)">
-            placeholder for left arrow
+          placeholder for left arrow
         </button>
         <button class="right-arrow" (click)="valDecideTrash(false)">
-            placeholder for right arrow
+          placeholder for right arrow
         </button>
+        }
     </div>
 
-    <p class="progress-bar">{{valueIndex + 1}} / {{valuesService.getValsLength()}}</p>
+    <p class="progress">{{valueIndex + 1}} / {{valuesService.getValsLength()}}</p>
 
-    <button (click)="undoDecision()">undo button</button>
+    <button (click)="undoDecision()" class="undo-button">undo button</button>
 
-    <button *ngIf="isFinished" (click)="openReview()">Next step button placeholder</button>
 </main>
