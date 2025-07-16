@@ -15,16 +15,16 @@
         }
         @else {
         <button class="left-arrow" (click)="valDecideTrash(true)">
-          placeholder for left arrow
+          Trash
         </button>
         <button class="right-arrow" (click)="valDecideTrash(false)">
-          placeholder for right arrow
+          Keep
         </button>
         }
     </div>
 
     <p class="progress">{{valueIndex + 1}} / {{valuesService.getValsLength()}}</p>
 
-    <button (click)="undoDecision()" class="undo-button">undo button</button>
+    <img (click)="undoDecision()" class="undo-button" src="/pictures/Undo.svg" alt="">
 
 </main>

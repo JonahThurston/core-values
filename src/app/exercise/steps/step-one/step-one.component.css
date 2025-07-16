@@ -1,17 +1,17 @@
 .trashcan{
-  flex: 2;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background-image: url("../../../../../public/pictures/TrashCan.png");
+  background-image: url("../../../../../public/pictures/TrashCan.svg");
   background-repeat: no-repeat;
-  background-size: 100px;
-  background-position: center center; /* Centers the image */
+  background-size: cover;
+  background-position: center center;
 
   width: 100px;
   margin-top: 15px;
   margin-bottom: 5px;
+  min-height: 110px;
 
   .percent-box{
     color: white;
@@ -30,6 +30,8 @@
 
   border-radius: 20px;
   box-shadow: 0px 12px 12px 0px var(--dropshadow-color);
+
+  max-width: 500px;
 }
 
 .decision-buttons{
@@ -38,6 +40,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .left-arrow{
+    background-image: url("../../../../../public/pictures/LeftArrow.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    border: none;
+    background-color: transparent;
+
+    width: 45vw;
+    max-width: 250px;
+    min-height: 150px;
+    margin-top: 15px;
+  }
+  .right-arrow{
+    background-image: url("../../../../../public/pictures/RightArrow.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    border: none;
+    background-color: transparent;
+
+    width: 45vw;
+    max-width: 250px;
+    min-height: 150px;
+    margin-top: 15px;
+  }
 }
 
 .progress{
@@ -50,4 +81,6 @@
   position: fixed;
   bottom: 20px;
   left: 20px;
+
+  width: 30px;
 }
