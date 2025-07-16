@@ -25,6 +25,11 @@ app-root{
   height: inherit;
 }
 
+app-home{
+  display: block;
+  height: inherit;
+}
+
 app-step-template{
   display: block;
   height: inherit;
