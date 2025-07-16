@@ -16,7 +16,7 @@ body {
 
 @font-face {
   font-family: 'segment-eglas';
-  src: url(assets/fonts/clock-font/segment-eglas.ttf) format('truetype');
+  src: url(../public/fonts/clock-font/segment-eglas.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }

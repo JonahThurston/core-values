@@ -1,5 +1,4 @@
 import { Component, inject, model } from '@angular/core';
-import { NgIf } from '@angular/common';
 
 import { ValuesManagerService } from '../../service/values-manager.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog'
@@ -8,7 +7,7 @@ import { StepOneReviewDialogueComponent } from './step-one-review-dialogue/step-
 
 @Component({
   selector: 'app-step-one',
-  imports: [NgIf, MatDialogModule],
+  imports: [MatDialogModule],
   templateUrl: './step-one.component.html',
   styleUrl: './step-one.component.css'
 })

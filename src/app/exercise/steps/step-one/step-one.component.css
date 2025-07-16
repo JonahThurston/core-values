@@ -1,6 +1,21 @@
-.top-info{
-  flex: 1;
-  text-align: center;
+.trashcan{
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("../../../../../public/pictures/TrashCan.png");
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: center center; /* Centers the image */
+
+  width: 100px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+
+  .percent-box{
+    color: white;
+  }
 }
 
 .value-card{
