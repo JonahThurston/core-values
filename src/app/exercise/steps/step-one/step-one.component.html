@@ -13,7 +13,7 @@
 
     <div class="decision-buttons">
         @if (isFinished) {
-          <button (click)="openReview()">Next step button placeholder</button>
+          <button (click)="openReview()" class="proceed-button">Proceed to next step</button>
         }
         @else {
         <button class="left-arrow" (click)="valDecideTrash(true)">
@@ -25,7 +25,9 @@
         }
     </div>
 
-    <p class="progress">{{valueIndex + 1}} / {{valuesService.getValsLength()}}</p>
+    @if (!isFinished) {
+      <p class="progress">Current Value: {{valueIndex + 1}} / {{valuesService.getValsLength()}}</p>
+    }
 
     <img (click)="undoDecision()" class="undo-button" src="/pictures/Undo.svg" alt="">
 

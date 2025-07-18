@@ -6,10 +6,12 @@ import { CoreValue } from '../../../service/core-value';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-step-one-review-dialogue',
-  imports: [MatDialogModule, CommonModule, RouterModule],
+  imports: [MatDialogModule, CommonModule, RouterModule, MatButtonModule, MatIconModule],
   templateUrl: './step-one-review-dialogue.component.html',
   styleUrl: './step-one-review-dialogue.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

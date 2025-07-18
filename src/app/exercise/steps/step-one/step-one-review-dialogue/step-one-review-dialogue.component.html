@@ -3,9 +3,20 @@
   <mat-dialog-content class="dialogue-body">
       <div *ngFor="let value of userVals">
           <div class="value-card" [ngClass]="{'trashed-card': value.trashed}">
-              <p>{{value.id + 1}}</p>
               <p>{{value.value}}</p>
-              <button class="trash-toggle" (click)="setTrash(value.id, !value.trashed)">trash toggle</button>
+
+              <button 
+                mat-icon-button 
+                aria-label="trash button" 
+                class="trash-toggle" 
+                (click)="setTrash(value.id, !value.trashed)">
+                  @if (value.trashed) {
+                    <mat-icon>restore_from_trash</mat-icon>
+                  }
+                  @else {
+                    <mat-icon>delete</mat-icon>
+                  }
+              </button>
           </div>
       </div>
   </mat-dialog-content>

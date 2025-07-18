@@ -119,12 +119,20 @@
     font-size: 2.5rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
+  button:hover{
+    cursor: pointer;
+  }
 
   .left-arrow{
     background-image: url("../../../../../public/pictures/LeftArrow.svg");
   }
   .right-arrow{
     background-image: url("../../../../../public/pictures/RightArrow.svg");
+  }
+  .proceed-button{
+    background-color: black;
+    color: var(--primary-color);
+    border-radius: 15px;
   }
 }
 

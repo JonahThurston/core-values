@@ -1,3 +1,18 @@
+.value-card{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+
+  border-bottom: 1px solid black;
+  padding: 2px;
+  color: black;
+
+  .trash-toggle{
+    color: black;
+  }
+}
+
 .trashed-card{
-    background-color: red;
+  text-decoration: line-through;
 }
