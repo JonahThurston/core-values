@@ -5,8 +5,10 @@
 
 
 
-    <div class="value-card">
+    <div class="value-card playfair-display" [class]="randomColor()">
+      <div class="current-value">
         {{getCurrentWord()}}
+      </div>
     </div>
 
     <div class="decision-buttons">

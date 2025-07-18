@@ -1,4 +1,4 @@
-import { Component, inject, model } from '@angular/core';
+import { Component, computed, inject, model, signal } from '@angular/core';
 
 import { ValuesManagerService } from '../../service/values-manager.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog'
@@ -21,6 +21,15 @@ export class StepOneComponent{
 
   stepNumber = model(1);
 
+  randomNum = signal(Math.floor(Math.random() * 5))
+  randomColor = computed(() => {
+    const colorOptions = ['color1', 'color2', 'color3', 'color4', 'color5'];
+    return colorOptions[this.randomNum()]
+  })
+  setNewColor() {
+    this.randomNum.set(Math.floor(Math.random() * 5))
+  }
+
   getCurrentWord(): string {
     if (this.valueIndex === this.numVals){
       return 'Finished!'
@@ -34,6 +43,7 @@ export class StepOneComponent{
     if (this.valueIndex < this.numVals){
       this.valuesService.setTrashed(this.valueIndex, trash);
       this.valueIndex++;
+      this.setNewColor();
       if (this.valueIndex === this.numVals){
         this.isFinished = true;
       }
@@ -43,6 +53,7 @@ export class StepOneComponent{
   undoDecision() {
     if (this.valueIndex > 0){
       this.valueIndex--;
+      this.setNewColor();
       this.isFinished = false;
       this.valuesService.setTrashed(this.valueIndex, false);
     }

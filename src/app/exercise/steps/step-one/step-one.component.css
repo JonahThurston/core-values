@@ -20,19 +20,81 @@
 
 .value-card{
   flex: 8;
-  
-  background-color: blueviolet;
-  width: 90vw;
-
   display: flex;
-  justify-content: center;
   align-items: center;
-
+  justify-content: center;
+  text-align: center;
+  
   border-radius: 20px;
   box-shadow: 0px 12px 12px 0px var(--dropshadow-color);
-
+  
+  width: 90vw;
   max-width: 500px;
+  container-type: size;
+
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  transform-style: preserve-3d;
+  
+  .current-value{
+    font-size: 10cqw;
+  }
 }
+.color1{
+  background-color: rgb(195, 141, 245);
+}
+.color2{
+  background-color: rgb(141, 245, 146);
+}
+.color3{
+  background-color: rgb(245, 141, 141);
+}
+.color4{
+  background-color: rgb(252, 191, 135);
+}
+.color5{
+  background-color: rgb(245, 238, 141);
+}
+
+.flip-left {
+  animation: flipOutLeft 0.6s forwards;
+}
+.flip-right {
+  animation: flipOutRight 0.6s forwards;
+}
+.grow-in {
+  animation: growIn 0.6s forwards;
+}
+@keyframes flipOutLeft {
+  0% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(-90deg) translateX(-100%);
+    opacity: 0;
+  }
+}
+@keyframes flipOutRight {
+  0% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(90deg) translateX(100%);
+    opacity: 0;
+  }
+}
+@keyframes growIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 
 .decision-buttons{
   flex: 4;
@@ -41,8 +103,7 @@
   justify-content: center;
   align-items: center;
 
-  .left-arrow{
-    background-image: url("../../../../../public/pictures/LeftArrow.svg");
+  button{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -54,27 +115,23 @@
     max-width: 250px;
     min-height: 150px;
     margin-top: 15px;
+
+    font-size: 2.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .left-arrow{
+    background-image: url("../../../../../public/pictures/LeftArrow.svg");
   }
   .right-arrow{
     background-image: url("../../../../../public/pictures/RightArrow.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-
-    border: none;
-    background-color: transparent;
-
-    width: 45vw;
-    max-width: 250px;
-    min-height: 150px;
-    margin-top: 15px;
   }
 }
 
 .progress{
-  flex: 1;
 
-
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.5rem;
 }
 
 .undo-button{
@@ -82,5 +139,5 @@
   bottom: 20px;
   left: 20px;
 
-  width: 30px;
+  width: 40px;
 }
