@@ -1,31 +1,32 @@
-@if(buckets().length < 8) {
-    <button (click)="createBucket()">Create New Bucket</button>
-}
-
-<section class="bucket-gallery" cdkDropListGroup>
-
-    <div cdkDropList class="curr-value-holder">
-        <p cdkDrag class="curr-value" [cdkDragData]="currentValue()">{{currentValue().value}}</p>
-    </div>
+<main class="main-content">
+  
+  <section class="bucket-gallery">
     @for (bucket of buckets(); track bucket.id) {
-        <div 
-            cdkDropList
-            class="bucket"
-            [cdkDropListData]="bucket" 
-            (cdkDropListDropped)="drop($event)"
-            (click)="openBucketDialogue(bucket)">
-            <button (click)="addValueToBucket(currentValue(), bucket)" >add value</button>
-        </div>
+      <div class="bucket">
+        <button (click)="addValueToBucket(currentValue(), bucket)" >add value</button>
+        <button (click)="openBucketDialogue(bucket)">edit bucket</button>
+      </div>
     }
+    
+  </section>
+  
+  
+  <section class="bottom-row">
+    <button mat-raised-button (click)="createBucket()" class="create-bucket" [disabled]="buckets().length >= 8">
+      <p class="new-bucket-text">Create New Bucket</p>
+    </button>
 
-
-</section>
-
-<section class="bottom-row">
     @if (!isFinished()) {
-        <button (click)="trashCurrentWord()">Trash</button>
+      <div class="value-card">
+        <p class="curr-value playfair-display">{{currentValue().value}}</p>
+      </div>
+
+      <button (click)="trashCurrentWord()" class="trash-button">Trash</button>
     }
     @else {
-        <button (click)="proceedToNextStep()">Proceed</button>
-    }
-</section>
+      <button (click)="proceedToNextStep()" class="proceed-button">Next Step</button>
+    }   
+      
+  </section>
+</main>
+

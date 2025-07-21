@@ -5,17 +5,11 @@ import { ConfirmationDialogueComponent } from '../../confirmation-dialogue/confi
 import { CoreValue } from '../../service/core-value';
 import { ValueBucket } from '../../service/value-bucket';
 import { ValuesManagerService } from '../../service/values-manager.service';
-import {
-  CdkDrag,
-  CdkDragDrop,
-  CdkDropList,
-  moveItemInArray,
-  transferArrayItem,
-} from '@angular/cdk/drag-drop';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-step-two',
-  imports: [CdkDropList, CdkDrag],
+  imports: [MatButtonModule],
   templateUrl: './step-two.component.html',
   styleUrl: './step-two.component.css'
 })
@@ -61,11 +55,6 @@ export class StepTwoComponent {
     reviewRef.afterClosed().subscribe(result => {
       //console.log(result);
     });
-  }
-  
-  drop(event: CdkDragDrop<ValueBucket>) {
-    console.log(`drop occured. dropped item: ${event.item.data}. Dropped into bucket: event.container.data`)
-    this.addValueToBucket(event.item.data, event.container.data);
   }
 
   addValueToBucket(val: CoreValue, bucket: ValueBucket) {

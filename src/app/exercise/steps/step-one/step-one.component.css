@@ -31,70 +31,16 @@
   width: 90vw;
   max-width: 500px;
   container-type: size;
-
-  transition: transform 0.6s ease, opacity 0.6s ease;
-  transform-style: preserve-3d;
   
   .current-value{
     font-size: 10cqw;
   }
 }
-.color1{
-  background-color: rgb(195, 141, 245);
-}
-.color2{
-  background-color: rgb(141, 245, 146);
-}
-.color3{
-  background-color: rgb(245, 141, 141);
-}
-.color4{
-  background-color: rgb(252, 191, 135);
-}
-.color5{
-  background-color: rgb(245, 238, 141);
-}
-
-.flip-left {
-  animation: flipOutLeft 0.6s forwards;
-}
-.flip-right {
-  animation: flipOutRight 0.6s forwards;
-}
-.grow-in {
-  animation: growIn 0.6s forwards;
-}
-@keyframes flipOutLeft {
-  0% {
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: rotateY(-90deg) translateX(-100%);
-    opacity: 0;
-  }
-}
-@keyframes flipOutRight {
-  0% {
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: rotateY(90deg) translateX(100%);
-    opacity: 0;
-  }
-}
-@keyframes growIn {
-  0% {
-    transform: scale(0.1);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
+.color1{background-color: rgb(195, 141, 245);}
+.color2{background-color: rgb(141, 245, 146);}
+.color3{background-color: rgb(245, 141, 141);}
+.color4{background-color: rgb(252, 191, 135);}
+.color5{background-color: rgb(245, 238, 141);}
 
 .decision-buttons{
   flex: 4;
