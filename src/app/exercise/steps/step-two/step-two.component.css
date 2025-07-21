@@ -5,13 +5,24 @@
 
   display: flex;
   flex-wrap: wrap;
-  gap: 3px;
+  gap: 10px;
   align-items: center;
   justify-content: center;
 
   .bucket {
     padding: 10px;
-    border: solid black 2px;
+    background-color: black;
+    border-radius: 5px;
+
+    button{
+      background-color: inherit;
+      border: none;
+    }
+
+    .edit-bucket{
+      color: var(--secondary-color);
+      float: right;
+    }
   }
 }
 

@@ -7,10 +7,11 @@ import { ValueBucket } from '../../service/value-bucket';
 import { ValuesManagerService } from '../../service/values-manager.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { BucketComponent } from '../../bucket/bucket.component';
 
 @Component({
   selector: 'app-step-two',
-  imports: [MatButtonModule, MatIconModule],
+  imports: [MatButtonModule, MatIconModule, BucketComponent],
   templateUrl: './step-two.component.html',
   styleUrl: './step-two.component.css'
 })
@@ -90,5 +91,19 @@ export class StepTwoComponent {
 
   proceedToNextStep(){
     this.stepNumber.update(oldValue => oldValue + 1);
+  }
+
+  private colors = [
+    '#F44336',
+    '#E91E63',
+    '#9C27B0',
+    '#3F51B5',
+    '#03A9F4',
+    '#4CAF50',
+    '#FF9800',
+    '#795548',
+  ];
+  getBucketColor(id: number){
+    return this.colors[id % this.colors.length];
   }
 }

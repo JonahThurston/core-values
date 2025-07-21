@@ -3,8 +3,12 @@
   <section class="bucket-gallery">
     @for (bucket of buckets(); track bucket.id) {
       <div class="bucket">
-        <button (click)="addValueToBucket(currentValue(), bucket)" >add value</button>
-        <button (click)="openBucketDialogue(bucket)">edit bucket</button>
+        <button (click)="addValueToBucket(currentValue(), bucket)" >
+          <app-bucket [fillColor]="getBucketColor(bucket.id)"></app-bucket>
+        </button>
+        <button class="edit-bucket" mat-icon-button (click)="openBucketDialogue(bucket)">
+          <mat-icon>settings</mat-icon>
+        </button>
       </div>
     }
     

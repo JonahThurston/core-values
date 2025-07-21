@@ -182,7 +182,7 @@ export class ValuesManagerService {
 }
 
 const testArray = [
-  "Entrepreneurship Entrepreneurship1", "Entrepreneurship Entrepreneurship2", "Entrepreneurship Entrepreneurship3", "Entrepreneurship Entrepreneurship4", "Entrepreneurship Entrepreneurship4"
+  "Entrepreneurship Entrepreneurship1", "Entrepreneurship Entrepreneurship2", "Entrepreneurship Entrepreneurship3", "Entrepreneurship Entrepreneurship4", "Entrepreneurship Entrepreneurship5"
 ]
 
 const valueArray = [
