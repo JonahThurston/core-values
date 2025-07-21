@@ -6,10 +6,11 @@ import { CoreValue } from '../../service/core-value';
 import { ValueBucket } from '../../service/value-bucket';
 import { ValuesManagerService } from '../../service/values-manager.service';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-step-two',
-  imports: [MatButtonModule],
+  imports: [MatButtonModule, MatIconModule],
   templateUrl: './step-two.component.html',
   styleUrl: './step-two.component.css'
 })

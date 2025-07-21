@@ -71,8 +71,15 @@ app-step-template{
     margin: 10px;
   }
 
+  .dialogue-body{
+    p{
+      color: black
+    }
+  }
+
   .dialogue-buttons{
     justify-self: center;
+    gap: 10px;
 
     button{
       background-color: black;
@@ -84,11 +91,11 @@ app-step-template{
 
       font-size: 20px;
 
-      cursor: pointer;
       transition: opacity 0.3s ease;
     }
     button:hover {
       opacity: 0.5; /* Opacity on hover (50% transparent) */
+      cursor: pointer;
     }
   }
 }

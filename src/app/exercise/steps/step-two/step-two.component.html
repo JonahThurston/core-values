@@ -12,8 +12,8 @@
   
   
   <section class="bottom-row">
-    <button mat-raised-button (click)="createBucket()" class="create-bucket" [disabled]="buckets().length >= 8">
-      <p class="new-bucket-text">Create New Bucket</p>
+    <button mat-fab (click)="createBucket()" class="create-bucket fab" [disabled]="buckets().length >= 8">
+      <mat-icon>add</mat-icon>
     </button>
 
     @if (!isFinished()) {
@@ -21,7 +21,9 @@
         <p class="curr-value playfair-display">{{currentValue().value}}</p>
       </div>
 
-      <button (click)="trashCurrentWord()" class="trash-button">Trash</button>
+      <button mat-fab aria-label="Trash current word button" (click)="trashCurrentWord()" class="trash-button fab">
+        <mat-icon>delete</mat-icon>
+      </button>
     }
     @else {
       <button (click)="proceedToNextStep()" class="proceed-button">Next Step</button>

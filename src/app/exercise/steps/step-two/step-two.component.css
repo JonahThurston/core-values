@@ -48,14 +48,17 @@
   button:hover{
     cursor: pointer;
   }
-  .create-bucket{
+  .fab{
     width: 20vw;
     height: 100px;
     max-width: 200px;
+    color: black;
+    background-color: white;
     
-    container-type: size;
-    .new-bucket-text{
-      font-size: 20cqh;
+    mat-icon{
+      min-width: min-content;
+      min-height: min-content;
+      font-size: 45px;
     }
   }
   .proceed-button{
@@ -69,10 +72,5 @@
     background-color: black;
     color: var(--primary-color);
     border-radius: 15px;
-  }
-  .trash-button{
-    width: 20vw;
-    height: 100px;
-    max-width: 200px;
   }
 }
