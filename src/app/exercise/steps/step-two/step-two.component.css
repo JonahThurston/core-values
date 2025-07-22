@@ -18,6 +18,9 @@
       background-color: inherit;
       border: none;
     }
+    button:hover{
+      cursor: pointer;
+    }
 
     .edit-bucket{
       color: var(--secondary-color);

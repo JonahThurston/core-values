@@ -1,0 +1,9 @@
+.bucket-val{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .trash-value{
+    color: black;
+  }
+}

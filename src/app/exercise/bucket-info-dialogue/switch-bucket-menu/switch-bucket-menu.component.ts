@@ -3,12 +3,16 @@ import { MatMenuModule } from '@angular/material/menu';
 import { CoreValue } from '../../service/core-value';
 import { ValueBucket } from '../../service/value-bucket';
 import { ValuesManagerService } from '../../service/values-manager.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-switch-bucket-menu',
-  imports: [MatMenuModule],
+  imports: [MatButtonModule, MatMenuModule, MatIconModule],
   template: `
-    <button [matMenuTriggerFor]="switchBucketMenu">switch bucket</button>
+    <button mat-icon-button [matMenuTriggerFor]="switchBucketMenu" class="menu-button">
+      <mat-icon>move_down</mat-icon>
+    </button>
     <mat-menu #switchBucketMenu="matMenu">
       @for (newBucket of bucketList; track newBucket.id) {
         <button (click)="switchBuckets(newBucket)" mat-menu-item>switch to bucket: {{newBucket.id + 1}}</button>

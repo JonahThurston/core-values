@@ -8,10 +8,12 @@ import { ValueBucket } from '../service/value-bucket';
 import { ValuesManagerService } from '../service/values-manager.service';
 import { SwitchBucketMenuComponent } from './switch-bucket-menu/switch-bucket-menu.component';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from "@angular/material/icon";
 
 @Component({
   selector: 'app-bucket-info-dialogue',
-  imports: [MatDialogModule, CommonModule, RouterModule, SwitchBucketMenuComponent, FormsModule],
+  imports: [MatDialogModule, CommonModule, RouterModule, SwitchBucketMenuComponent, FormsModule, MatButtonModule, MatIconModule],
   templateUrl: './bucket-info-dialogue.component.html',
   styleUrl: './bucket-info-dialogue.component.css',
 })
