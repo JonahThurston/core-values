@@ -66,5 +66,7 @@
     background-color: black;
     color: var(--primary-color);
     border-radius: 15px;
+
+    max-height: 150px;
   }
 }
