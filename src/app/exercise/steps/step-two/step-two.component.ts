@@ -92,18 +92,4 @@ export class StepTwoComponent {
   proceedToNextStep(){
     this.stepNumber.update(oldValue => oldValue + 1);
   }
-
-  private colors = [
-    '#F44336',
-    '#E91E63',
-    '#9C27B0',
-    '#3F51B5',
-    '#03A9F4',
-    '#4CAF50',
-    '#FF9800',
-    '#795548',
-  ];
-  getBucketColor(id: number){
-    return this.colors[id % this.colors.length];
-  }
 }

@@ -3,10 +3,11 @@ import { ValuesManagerService } from '../../service/values-manager.service';
 import { ValueBucket } from '../../service/value-bucket';
 import { MatDialog } from '@angular/material/dialog';
 import { BucketInfoDialogueComponent } from '../../bucket-info-dialogue/bucket-info-dialogue.component';
+import { BucketComponent } from "../../bucket/bucket.component";
 
 @Component({
   selector: 'app-step-three',
-  imports: [],
+  imports: [BucketComponent],
   templateUrl: './step-three.component.html',
   styleUrl: './step-three.component.css'
 })

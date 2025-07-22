@@ -1,11 +1,20 @@
-<section class="bucket-gallery">
-    @for (bucket of buckets(); track bucket.id) {
-        <div class="bucket">
-            <button (click)="openBucketDialogue(bucket)">edit bucket: {{bucket.name}}</button>
+<main class="main-content">
+  <section class="bucket-gallery">
+      @for (bucket of buckets(); track bucket.id) {
+        <div class="bucket-card">
+          <div class="bucket" [class]="{'name-not-set': bucket.name === 'Name not set'}">
+              <button (click)="openBucketDialogue(bucket)">
+                <app-bucket [bucketId]="bucket.id"></app-bucket>
+              </button>
+          </div>
+          <div>{{bucket.name}}</div>
         </div>
-    }
-</section>
-
-@if (isFinished()) {
-    <button (click)="proceedToNextStep()">Proceed</button>
-}
+      }
+  </section>
+  
+  @if (isFinished()) {
+    <div class="bottom-row">
+      <button (click)="proceedToNextStep()" class="proceed-button">Proceed</button>
+    </div>
+  }
+</main>

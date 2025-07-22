@@ -4,7 +4,7 @@
     @for (bucket of buckets(); track bucket.id) {
       <div class="bucket">
         <button (click)="addValueToBucket(currentValue(), bucket)" >
-          <app-bucket [fillColor]="getBucketColor(bucket.id)"></app-bucket>
+          <app-bucket [bucketId]="bucket.id"></app-bucket>
         </button>
         <button class="edit-bucket" mat-icon-button (click)="openBucketDialogue(bucket)">
           <mat-icon>settings</mat-icon>
