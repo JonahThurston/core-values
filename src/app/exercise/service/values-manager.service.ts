@@ -125,10 +125,12 @@ export class ValuesManagerService {
       return;
     }
 
+    const bucketIndex = this.userBuckets().findIndex(bucket => bucket.id === givenBucket.id)
+
     givenBucket.values.push(valToAdd);
     this.userBuckets.update(oldArray => {
       const newArray = [...oldArray];
-      newArray[givenBucket.id] = givenBucket;
+      newArray[bucketIndex] = givenBucket;
       return newArray;
     });
   }
@@ -142,10 +144,12 @@ export class ValuesManagerService {
 
     this.setTrashed(valToDelete.id, true);
 
+    const bucketIndex = this.userBuckets().findIndex(b => b.id === bucket.id)
+
     bucket.values.splice(foundAt, 1);
     this.userBuckets.update(oldArray => {
       const newArray = [...oldArray];
-      newArray[bucket.id] = bucket;
+      newArray[bucketIndex] = bucket;
       return newArray;
     })
   }
@@ -162,12 +166,15 @@ export class ValuesManagerService {
       return
     }
 
+    const oldBIndex = this.userBuckets().findIndex(b => b.id === oldBucket.id)
+    const newBIndex = this.userBuckets().findIndex(b => b.id === newBucket.id)
+
     oldBucket.values.splice(oldBucketIndex, 1);
     newBucket.values.push(valToSwitch);
     this.userBuckets.update(oldArray => {
       const newArray = [...oldArray];
-      newArray[oldBucket.id] = oldBucket;
-      newArray[newBucket.id] = newBucket
+      newArray[oldBIndex] = oldBucket;
+      newArray[newBIndex] = newBucket
       return newArray;
     });
   }

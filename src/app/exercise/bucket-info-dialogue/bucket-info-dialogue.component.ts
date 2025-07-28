@@ -47,9 +47,10 @@ export class BucketInfoDialogueComponent {
   }
 
   updateBucketName = (name: string) => {
+    const bucketIndex = this.allBuckets().findIndex(b => b.id === this.bucket.id)
     this.allBuckets.update((oldArray) => {
       const newArray = [...oldArray];
-      newArray[this.bucket.id] = this.bucket;
+      newArray[bucketIndex] = this.bucket;
       return newArray;
     })
   }
