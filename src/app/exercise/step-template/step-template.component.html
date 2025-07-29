@@ -1,7 +1,9 @@
 <div class="step-template">
   @if (stepNumber() < 5) {
     <header class="header">
-        <button class="iBall" (click)="openInstructions()">?</button>
+        <button mat-fab class="iBall" (click)="openInstructions()">
+          <mat-icon>question_mark</mat-icon>
+        </button>
         <app-timer class="timer"></app-timer>
     </header>
   }
