@@ -67,7 +67,7 @@
     height: 100px;
     max-width: 200px;
     color: black;
-    background-color: white;
+    background-color: var(--accent-color);
     
     mat-icon{
       min-width: min-content;

@@ -3,8 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap');
 
 :root {
-  --primary-color: #139ba5;
-  --secondary-color: #fcce0e;
+  /* --primary-color: #139ba5;
+  --secondary-color: #fcce0e; */
+  --primary-color: white;
+  --secondary-color: #139ba5;
+  --accent-color: #fcce0e;
   --dropshadow-color: rgb(70, 57, 57);
 }
 html, body { height: 100%; }
@@ -64,7 +67,7 @@ app-step-template{
 }
 
 .dialogue{
-  background-color: var(--secondary-color);
+  background-color: var(--accent-color);
 
   .dialogue-title{
     justify-self: center;
@@ -83,7 +86,7 @@ app-step-template{
 
     button{
       background-color: black;
-      color: var(--secondary-color);
+      color: var(--accent-color);
 
       border: none;
       padding: 10px;

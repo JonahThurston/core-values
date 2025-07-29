@@ -31,10 +31,10 @@ export class ValuesManagerService {
   ])
   
   constructor() { 
-    // shuffle(testArray)
-    // this.userVals = testArray.map((value, index) => ({
-    shuffle(valueArray);
-    this.userVals = valueArray.map((value, index) => ({
+    shuffle(testArray)
+    this.userVals = testArray.map((value, index) => ({
+    // shuffle(valueArray);
+    // this.userVals = valueArray.map((value, index) => ({
         id: index,
         value: value,
         trashed: false
@@ -188,10 +188,10 @@ export class ValuesManagerService {
   }
 }
 
-// const testArray = [
-//   "Entrepreneurship Entrepreneurship1", "Entrepreneurship Entrepreneurship2", "Entrepreneurship Entrepreneurship3", "Entrepreneurship Entrepreneurship4", "Entrepreneurship Entrepreneurship5",
-//   "Entrepreneurship Entrepreneurship1", "Entrepreneurship Entrepreneurship2", "Entrepreneurship Entrepreneurship3", "Entrepreneurship Entrepreneurship4", "Entrepreneurship Entrepreneurship5",
-// ]
+const testArray = [
+  "Entrepreneurship Entrepreneurship1", "Entrepreneurship Entrepreneurship2", "Entrepreneurship Entrepreneurship3", "Entrepreneurship Entrepreneurship4", "Entrepreneurship Entrepreneurship5",
+  "Entrepreneurship Entrepreneurship1", "Entrepreneurship Entrepreneurship2", "Entrepreneurship Entrepreneurship3", "Entrepreneurship Entrepreneurship4", "Entrepreneurship Entrepreneurship5",
+]
 
 const valueArray = [
   "Abundance",
