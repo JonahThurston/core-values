@@ -11,14 +11,10 @@
     align-items: center;
 
     .iBall{
-      border-radius: 50%;
-      height: 40px;
-      width: 40px;
       margin-left: 10px;
 
-      font-size: x-large;
-      font-weight: 900;
-      color: black;
+      background-color: transparent;
+      border: none;
     }
 
     .timer{
