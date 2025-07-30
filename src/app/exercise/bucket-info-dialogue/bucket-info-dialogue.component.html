@@ -1,5 +1,5 @@
 <div class="dialogue">
-  <h2 class="dialogue-title">Edit Bucket #{{bucket.id + 1}}</h2>
+  <h2 class="dialogue-title brand-font">Edit Bucket #{{bucket.id + 1}}</h2>
   <mat-dialog-content class="dialogue-body">
     @if (stepNumber > 2) {
         <input class="name-input" type="text" [(ngModel)]="bucket.name" (ngModelChange)="updateBucketName(bucket.name)">

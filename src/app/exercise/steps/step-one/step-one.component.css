@@ -33,7 +33,7 @@
   container-type: size;
   
   .current-value{
-    font-size: 10cqw;
+    font-size: 8.5cqw;
   }
 }
 .color1{background-color: rgb(195, 141, 245);}
@@ -63,7 +63,6 @@
     margin-top: 15px;
 
     font-size: 2.5rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: black;
   }
   button:hover{
@@ -84,8 +83,6 @@
 }
 
 .progress{
-
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 1.5rem;
 }
 

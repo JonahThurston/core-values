@@ -49,10 +49,6 @@
   animation: float 2s ease-in-out infinite;
 }
 
-.name {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 @keyframes glow {
   from {
     box-shadow: 0 0 10px gold, 0 0 20px goldenrod;
