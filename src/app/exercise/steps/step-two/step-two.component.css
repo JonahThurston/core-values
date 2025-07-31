@@ -70,8 +70,8 @@
     background-color: var(--accent-color);
     
     mat-icon{
-      min-width: min-content;
-      min-height: min-content;
+      min-width: 45px;
+      min-height: 45px;
       font-size: 45px;
     }
   }
