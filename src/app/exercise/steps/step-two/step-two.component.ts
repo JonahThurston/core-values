@@ -20,12 +20,11 @@ export class StepTwoComponent {
   readonly dialog = inject(MatDialog);
   
   stepNumber = model(2);
-  currentIndex = signal(0)
+  currentIndex = signal(this.valuesService.getNextNotTrashedId(-1))
   currentValue = computed(() => this.getValueByIndex(this.currentIndex()))
   buckets = this.valuesService.getBucketSignal();
   numBuckets = computed(() => this.buckets().length)
   
-  valueIndex = 0;
   numVals = this.valuesService.getValsLength();
   isFinished = signal(false);
   
