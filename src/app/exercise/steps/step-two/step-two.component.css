@@ -23,7 +23,7 @@
     }
 
     .edit-bucket{
-      color: var(--secondary-color);
+      color: var(--grey-color);
       float: right;
     }
   }

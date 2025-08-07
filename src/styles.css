@@ -6,6 +6,7 @@
   --primary-color: white;
   --secondary-color: #139ba5;
   --accent-color: #fcce0e;
+  --grey-color: #BCB8B1;
   --dropshadow-color: rgb(70, 57, 57);
 }
 html, body { height: 100%; }
