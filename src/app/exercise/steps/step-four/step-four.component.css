@@ -44,8 +44,15 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.bottom-row{
+.list-container{
   flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-row{
+  flex: 1;
   margin-bottom: 10px;
 
   display: flex;
