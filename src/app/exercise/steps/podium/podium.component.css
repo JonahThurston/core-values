@@ -1,65 +1,87 @@
+.header{
+  margin-bottom: 20px;
+}
+
+.video-wrapper{
+  @media (width > 600px) {
+    flex: 3;
+  }
+  flex: 1.25;
+  aspect-ratio: 16/9;
+  margin-bottom: 10px;
+  
+  .closing-video{
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
 .vertical-podium {
+  flex: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding: 40px;
+  justify-content: space-evenly;
+  gap: 10px;
+  padding: 10px;
   background: linear-gradient(to bottom, #1e1e2f, #2a2a40);
   border-radius: 20px;
   width: 250px;
   margin: auto;
   box-shadow: 0 0 20px rgba(0,0,0,0.6);
-}
 
-.podium-slot {
-  width: 100%;
-  padding: 20px;
-  border-radius: 12px;
-  color: black;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  position: relative;
-  box-shadow: inset 0 0 10px rgba(255,255,255,0.1), 0 4px 20px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
-}
-
-.podium-slot:hover {
-  transform: scale(1.05);
-}
-
-.first-place {
-  background: radial-gradient(circle at center, #ffd700 0%, #ffcc00 100%);
-  box-shadow: 0 0 25px gold;
-  animation: glow 2s infinite alternate;
-}
-
-.second-place {
-  background: radial-gradient(circle at center, #c0c0c0 0%, #a9a9a9 100%);
-}
-
-.third-place {
-  background: radial-gradient(circle at center, #cd7f32 0%, #a0522d 100%);
-}
-
-.medal {
-  display: block;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  animation: float 2s ease-in-out infinite;
-}
-
-@keyframes glow {
-  from {
-    box-shadow: 0 0 10px gold, 0 0 20px goldenrod;
+  .podium-slot {
+    width: 100%;
+    padding: 5px;
+    border-radius: 12px;
+    color: black;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.1), 0 4px 20px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
   }
-  to {
-    box-shadow: 0 0 20px gold, 0 0 40px goldenrod;
+  
+  .podium-slot:hover {
+    transform: scale(1.05);
+  }
+  
+  .first-place {
+    background: radial-gradient(circle at center, #ffd700 0%, #ffcc00 100%);
+    box-shadow: 0 0 25px gold;
+    animation: glow 2s infinite alternate;
+  }
+  
+  .second-place {
+    background: radial-gradient(circle at center, #c0c0c0 0%, #a9a9a9 100%);
+  }
+  
+  .third-place {
+    background: radial-gradient(circle at center, #cd7f32 0%, #a0522d 100%);
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 10px gold, 0 0 20px goldenrod;
+    }
+    to {
+      box-shadow: 0 0 20px gold, 0 0 40px goldenrod;
+    }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
   }
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0px); }
+.home-logo{
+  flex: 1;
+  width: 90%;
+  max-width: 600px;
+  margin-top: 10px;
+  margin-bottom: 40px;
 }
