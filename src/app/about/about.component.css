@@ -1,0 +1,22 @@
+.start-button{
+  flex: 1;
+
+  margin-bottom: 10px;
+
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 0.1rem;
+
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+
+  background-color: black;
+  color: var(--primary-color);
+
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.start-button:hover {
+  opacity: 0.5; /* Opacity on hover (50% transparent) */
+}

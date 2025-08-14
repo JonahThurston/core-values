@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { StepTemplateComponent } from './exercise/step-template/step-template.component';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 
 export const routes: Routes = [
     {
@@ -12,5 +13,10 @@ export const routes: Routes = [
         path: 'exercise',
         component: StepTemplateComponent,
         title: 'Core Values Exercise'
+    },
+    {
+        path: 'about',
+        component: AboutComponent,
+        title: 'About'
     }
 ];
