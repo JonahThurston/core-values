@@ -1,10 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap');
-
 :root {
-  --primary-color: #139ba5;
-  --secondary-color: #fcce0e;
+  /* --primary-color: #139ba5;
+  --secondary-color: #fcce0e; */
+  --primary-color: white;
+  --secondary-color: #139ba5;
+  --tertiary-color: #f15b32;
+  --accent-color: #fcce0e;
+  --grey-color: #BCB8B1;
   --dropshadow-color: rgb(70, 57, 57);
 }
 html, body { height: 100%; }
@@ -23,12 +26,20 @@ body {
   font-style: normal;
 }
 
-
-.playfair-display {
-  font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
+@font-face {
+  font-family: 'Obviously-Bold';
+  src: url('../public/fonts/brand-font/Obviously-Bold.woff2') format('woff2'),
+       url('../public/fonts/brand-font/Obviously-Bold.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+
+
+.brand-font {
+  font-family: "Obviously-Bold", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
 }
 
 app-root{
@@ -49,10 +60,11 @@ app-step-template{
   background-color: var(--secondary-color);
   width: 100vw;
   box-shadow: 0px 12px 12px 0px var(--dropshadow-color);
+  display: flex;
+  justify-content: center;
   
   .title{
     justify-self: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
   }
 }
 
@@ -64,7 +76,7 @@ app-step-template{
 }
 
 .dialogue{
-  background-color: var(--secondary-color);
+  background-color: var(--accent-color);
 
   .dialogue-title{
     justify-self: center;
@@ -83,7 +95,7 @@ app-step-template{
 
     button{
       background-color: black;
-      color: var(--secondary-color);
+      color: var(--accent-color);
 
       border: none;
       padding: 10px;

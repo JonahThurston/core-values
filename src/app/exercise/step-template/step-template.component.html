@@ -1,7 +1,9 @@
 <div class="step-template">
   @if (stepNumber() < 5) {
     <header class="header">
-        <button class="iBall" (click)="openInstructions()">?</button>
+        <button mat-fab class="iBall" (click)="openInstructions()">
+          <img src="/pictures/brand-q-icon.PNG" alt="">
+        </button>
         <app-timer class="timer"></app-timer>
     </header>
   }

@@ -1,11 +1,10 @@
 .explanation-text{
-  flex: 3;
+  flex: 1;
 
-  color: white;
   margin-inline: 10px;
 
   font-weight: 700;
-  font-size: 30px;
+  font-size: 25px;
   letter-spacing: 0.1rem;
 
   li + li {
@@ -13,25 +12,40 @@
   }
 }
 
-.start-button{
-  flex: 1;
-
-  margin-bottom: 10px;
-
-  font-weight: 700;
-  font-size: 30px;
-  letter-spacing: 0.1rem;
-
-  border-radius: 10px;
-  border: none;
-  padding: 10px;
-
-  background-color: black;
-  color: var(--primary-color);
-
-  cursor: pointer;
-  transition: opacity 0.3s ease;
+.button-container{
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .start-button{
+    height: 100%;
+    max-height: 200px;
+  
+    margin-bottom: 10px;
+  
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 0.1rem;
+  
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+  
+    background-color: black;
+    color: var(--primary-color);
+  
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  .start-button:hover {
+    opacity: 0.5; /* Opacity on hover (50% transparent) */
+  }
 }
-.start-button:hover {
-  opacity: 0.5; /* Opacity on hover (50% transparent) */
+
+.home-logo{
+  flex: 1;
+  width: 90%;
+  max-width: 600px;
+  margin-bottom: 40px;
 }

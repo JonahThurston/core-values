@@ -5,7 +5,7 @@
 
 
 
-    <div class="value-card playfair-display" [class]="randomColor()">
+    <div class="value-card brand-font" [class]="randomColor()">
       <div class="current-value">
         {{getCurrentWord()}}
       </div>
@@ -16,10 +16,10 @@
           <button (click)="openReview()" class="proceed-button">Proceed to next step</button>
         }
         @else {
-        <button class="left-arrow" (click)="valDecideTrash(true)">
+        <button class="left-arrow brand-font" (click)="valDecideTrash(true)">
           Trash
         </button>
-        <button class="right-arrow" (click)="valDecideTrash(false)">
+        <button class="right-arrow brand-font" (click)="valDecideTrash(false)">
           Keep
         </button>
         }

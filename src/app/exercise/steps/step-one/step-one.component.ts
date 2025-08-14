@@ -21,13 +21,13 @@ export class StepOneComponent{
 
   stepNumber = model(1);
 
-  randomNum = signal(Math.floor(Math.random() * 5))
+  randomNum = signal(Math.floor(Math.random() * 3))
   randomColor = computed(() => {
-    const colorOptions = ['color1', 'color2', 'color3', 'color4', 'color5'];
+    const colorOptions = ['color1', 'color2', 'color3'];
     return colorOptions[this.randomNum()]
   })
   setNewColor() {
-    this.randomNum.set(Math.floor(Math.random() * 5))
+    this.randomNum.set(Math.floor(Math.random() * 3))
   }
 
   getCurrentWord(): string {

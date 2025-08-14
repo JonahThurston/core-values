@@ -33,14 +33,12 @@
   container-type: size;
   
   .current-value{
-    font-size: 10cqw;
+    font-size: 8.5cqw;
   }
 }
-.color1{background-color: rgb(195, 141, 245);}
-.color2{background-color: rgb(141, 245, 146);}
-.color3{background-color: rgb(245, 141, 141);}
-.color4{background-color: rgb(252, 191, 135);}
-.color5{background-color: rgb(245, 238, 141);}
+.color1{background-color: var(--secondary-color);}
+.color2{background-color: var(--tertiary-color);}
+.color3{background-color: var(--accent-color);}
 
 .decision-buttons{
   flex: 4;
@@ -63,7 +61,7 @@
     margin-top: 15px;
 
     font-size: 2.5rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
   }
   button:hover{
     cursor: pointer;
@@ -83,8 +81,6 @@
 }
 
 .progress{
-
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 1.5rem;
 }
 

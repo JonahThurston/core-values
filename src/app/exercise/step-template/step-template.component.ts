@@ -10,10 +10,12 @@ import { StepInstructionsComponent } from './step-instructions/step-instructions
 import { StepThreeComponent } from '../steps/step-three/step-three.component';
 import { StepFourComponent } from '../steps/step-four/step-four.component';
 import { PodiumComponent } from '../steps/podium/podium.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-step-template',
-  imports: [RouterModule, TimerComponent, StepOneComponent, StepTwoComponent, StepThreeComponent, StepFourComponent, PodiumComponent],
+  imports: [RouterModule, TimerComponent, StepOneComponent, StepTwoComponent, StepThreeComponent, StepFourComponent, PodiumComponent, MatButtonModule, MatIconModule],
   templateUrl: './step-template.component.html',
   styleUrl: './step-template.component.css'
 })

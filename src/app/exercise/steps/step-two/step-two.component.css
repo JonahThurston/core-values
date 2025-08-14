@@ -23,7 +23,7 @@
     }
 
     .edit-bucket{
-      color: var(--secondary-color);
+      color: var(--grey-color);
       float: right;
     }
   }
@@ -55,7 +55,7 @@
     
     container-type: size;
     .curr-value{
-      font-size: 10cqw;
+      font-size: 8.5cqw;
     }
   }
 
@@ -67,11 +67,11 @@
     height: 100px;
     max-width: 200px;
     color: black;
-    background-color: white;
+    background-color: var(--accent-color);
     
     mat-icon{
-      min-width: min-content;
-      min-height: min-content;
+      min-width: 45px;
+      min-height: 45px;
       font-size: 45px;
     }
   }
@@ -81,7 +81,6 @@
     padding: 10px;
 
     font-size: 2.5rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
     background-color: black;
     color: var(--primary-color);
