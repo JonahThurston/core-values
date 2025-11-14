@@ -1,13 +1,15 @@
-.bucket-val{
+.bucket-val {
   display: flex;
   align-items: center;
   gap: 10px;
 
-  .trash-value{
+  .trash-value {
     color: black;
+    background-color: var(--accent-color);
+    border: none;
   }
 }
 
-.name-input{
+.name-input {
   font-size: 20px;
 }

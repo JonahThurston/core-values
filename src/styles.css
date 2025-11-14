@@ -89,6 +89,7 @@ app-step-template {
     button {
       background-color: var(--accent-color);
       border: none;
+      color: black;
     }
   }
 

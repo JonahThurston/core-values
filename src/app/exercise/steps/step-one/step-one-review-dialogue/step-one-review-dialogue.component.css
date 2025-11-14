@@ -1,4 +1,4 @@
-.value-card{
+.value-card {
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -8,11 +8,13 @@
   padding: 2px;
   color: black;
 
-  .trash-toggle{
+  .trash-toggle {
     color: black;
+    background-color: var(--accent-color);
+    border: none;
   }
 }
 
-.trashed-card{
+.trashed-card {
   text-decoration: line-through;
 }
