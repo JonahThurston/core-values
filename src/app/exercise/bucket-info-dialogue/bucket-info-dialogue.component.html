@@ -1,23 +1,38 @@
 <div class="dialogue">
-  <h2 class="dialogue-title brand-font">Edit Bucket #{{bucket.id + 1}}</h2>
+  <div class="dialogue-top-row">
+    <h2 class="dialogue-title brand-font">Edit Bucket #{{ bucket.id + 1 }}</h2>
+    <button mat-button mat-dialog-close="cancel">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
   <mat-dialog-content class="dialogue-body">
     @if (stepNumber > 2) {
-        <input class="name-input" type="text" [(ngModel)]="bucket.name" (ngModelChange)="updateBucketName(bucket.name)">
-    }
-    
-    @for (bucketValue of bucketVals; track bucketValue.id) {
-      <div class="bucket-val">
-        <p>{{bucketValue.value}}</p>
-        <button mat-icon-button (click)="trashBucketVal(bucketValue)" class="trash-value">
-          <mat-icon>delete</mat-icon>
-        </button>
-        <app-switch-bucket-menu [oldBucket]="bucket" [value]="bucketValue"></app-switch-bucket-menu>
-      </div>
+    <input
+      class="name-input"
+      type="text"
+      [(ngModel)]="bucket.name"
+      (ngModelChange)="updateBucketName(bucket.name)"
+    />
+    } @for (bucketValue of bucketVals; track bucketValue.id) {
+    <div class="bucket-val">
+      <p>{{ bucketValue.value }}</p>
+      <button
+        mat-icon-button
+        (click)="trashBucketVal(bucketValue)"
+        class="trash-value"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+      <app-switch-bucket-menu
+        [oldBucket]="bucket"
+        [value]="bucketValue"
+      ></app-switch-bucket-menu>
+    </div>
     }
   </mat-dialog-content>
   <mat-dialog-actions class="dialogue-buttons">
     @if ((this.bucket.values.length === 0) && (this.numberOfBuckets > 3)) {
-        <button mat-dialog-close (click)="deleteBucket()">delete bucket</button>
+    <button mat-dialog-close (click)="deleteBucket()">delete bucket</button>
     }
   </mat-dialog-actions>
 </div>

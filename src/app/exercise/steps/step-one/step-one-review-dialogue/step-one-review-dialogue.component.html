@@ -1,26 +1,31 @@
 <div class="dialogue">
-  <h2 class="dialogue-title brand-font">Double Check Your Decisions</h2>
+  <div class="dialogue-top-row">
+    <h2 class="dialogue-title brand-font">Double Check Your Decisions</h2>
+    <button mat-button mat-dialog-close="cancel">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
   <mat-dialog-content class="dialogue-body">
-      <div *ngFor="let value of userVals">
-          <div class="value-card" [ngClass]="{'trashed-card': value.trashed}">
-              <p>{{value.value}}</p>
+    <div *ngFor="let value of userVals">
+      <div class="value-card" [ngClass]="{ 'trashed-card': value.trashed }">
+        <p>{{ value.value }}</p>
 
-              <button 
-                mat-icon-button 
-                aria-label="trash button" 
-                class="trash-toggle" 
-                (click)="setTrash(value.id, !value.trashed)">
-                  @if (value.trashed) {
-                    <mat-icon>restore_from_trash</mat-icon>
-                  }
-                  @else {
-                    <mat-icon>delete</mat-icon>
-                  }
-              </button>
-          </div>
+        <button
+          mat-icon-button
+          aria-label="trash button"
+          class="trash-toggle"
+          (click)="setTrash(value.id, !value.trashed)"
+        >
+          @if (value.trashed) {
+          <mat-icon>restore_from_trash</mat-icon>
+          } @else {
+          <mat-icon>delete</mat-icon>
+          }
+        </button>
       </div>
+    </div>
   </mat-dialog-content>
   <mat-dialog-actions class="dialogue-buttons">
-      <button mat-button mat-dialog-close="proceed" >On to Step 2</button>
+    <button mat-button mat-dialog-close="proceed">On to Step 2</button>
   </mat-dialog-actions>
 </div>
