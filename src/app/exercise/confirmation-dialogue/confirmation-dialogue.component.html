@@ -1,10 +1,15 @@
 <div class="dialogue">
-  <h2 class="dialogue-title brand-font">Confirm Choice</h2>
+  <div class="dialogue-top-row">
+    <h2 class="dialogue-title brand-font">Confirm Choice</h2>
+    <button mat-button mat-dialog-close="cancel">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
   <mat-dialog-content class="dialogue-body">
-      <p>{{this.message}}</p>
+    <p>{{ this.message }}</p>
   </mat-dialog-content>
   <mat-dialog-actions class="dialogue-buttons">
-      <button mat-button mat-dialog-close="confirm" >confirm</button>
-      <button mat-button mat-dialog-close="cancel" >cancel</button>
+    <button mat-button mat-dialog-close="confirm">confirm</button>
+    <button mat-button mat-dialog-close="cancel">cancel</button>
   </mat-dialog-actions>
 </div>
